@@ -16,18 +16,18 @@
 			<h2>Відповідь</h2>
 			<script>
 				//Вводимо необхідні дані
-				let productPrice1 = parseFloat(prompt('Введіть вартість одиниці товару 1', '0')).toFixed(2),
+				let productPrice1 = parseFloat(prompt('Введіть вартість одиниці товару 1', '0')),
 					productCount1 = parseFloat(prompt('Введіть кількість товару 1', '0')),
-					productPrice2 = parseFloat(prompt('Введіть вартість одиниці товару 2', '0')).toFixed(2),
+					productPrice2 = parseFloat(prompt('Введіть вартість одиниці товару 2', '0')),
 					productCount2 = parseFloat(prompt('Введіть кількість товару 2', '0')),
-					productPrice3 = parseFloat(prompt('Введіть вартість одиниці товару 3', '0')).toFixed(2),
+					productPrice3 = parseFloat(prompt('Введіть вартість одиниці товару 3', '0')),
 					productCount3 = parseFloat(prompt('Введіть кількість товару 3', '0'));
 	
 				//Знаходимо результат
-				let productTotalCost1 = (productPrice1 * productCount1).toFixed(2),
-					productTotalCost2 = (productPrice2 * productCount2).toFixed(2),
-					productTotalCost3 = (productPrice3 * productCount3).toFixed(2),
-					totalCost = (parseFloat(productTotalCost1) + parseFloat(productTotalCost2) + parseFloat(productTotalCost3)).toFixed(2);
+				let productTotalCost1 = (productPrice1 * productCount1),
+					productTotalCost2 = (productPrice2 * productCount2),
+					productTotalCost3 = (productPrice3 * productCount3),
+					totalCost = productTotalCost1 + productTotalCost2 + productTotalCost3;
 	
 				//Виводимо результат
 				document.write(`
@@ -39,8 +39,8 @@
 						<tr>
 							<td>${productCount1}</th>
 							<td>*</th>
-							<td>${productPrice1}</th>
-							<td>${productTotalCost1}</th>
+							<td>${productPrice1.toFixed(2)}</th>
+							<td>${productTotalCost1.toFixed(2)}</th>
 						</tr>
 						<tr>
 							<th colspan="4">Товар 2</th>
@@ -48,8 +48,8 @@
 						<tr>
 							<td>${productCount2}</th>
 							<td>*</th>
-							<td>${productPrice2}</th>
-							<td>${productTotalCost2}</th>
+							<td>${productPrice2.toFixed(2)}</th>
+							<td>${productTotalCost2.toFixed(2)}</th>
 						</tr>
 						<tr>
 							<th colspan="4">Товар 3</th>
@@ -57,12 +57,12 @@
 						<tr>
 							<td>${productCount3}</th>
 							<td>*</th>
-							<td>${productPrice3}</th>
-							<td>${productTotalCost3}</th>
+							<td>${productPrice3.toFixed(2)}</th>
+							<td>${productTotalCost3.toFixed(2)}</th>
 						</tr>
 						<tr>
 							<td colspan="3">Всього</th>
-							<td>${totalCost}</th>
+							<td>${totalCost.toFixed(2)}</th>
 						</tr>
 					</table>
 				`)
