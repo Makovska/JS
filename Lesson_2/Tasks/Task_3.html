@@ -16,13 +16,13 @@
 			<h2>Відповідь</h2>
 			<script>
 				//Вводимо необхідні дані
-				let productPrice = parseFloat(prompt('Введіть вартість одиниці товару', '0')).toFixed(2),
+				let productPrice = parseFloat(prompt('Введіть вартість одиниці товару', '0')),
 					productCount = parseFloat(prompt('Введіть кількість товару', '0'));
 				
 				const RATE_VAT = 5;
 	
 				//Знаходимо результат
-				let productTotalCost = (productPrice * productCount).toFixed(2),
+				let productTotalCost = (productPrice * productCount),
 					VAT = (productTotalCost * RATE_VAT / 100).toFixed(2);
 	
 				//Виводимо результат
@@ -30,7 +30,7 @@
 					<table>
 						<tr>
 							<th>Ціна товару</th>
-							<td>${productPrice}</th>
+							<td>${productPrice.toFixed(2)}</th>
 						</tr>
 						<tr>
 							<th>Кількість товару</th>
@@ -38,7 +38,7 @@
 						</tr>
 						<tr>
 							<th>Вартість всього</th>
-							<td>${productTotalCost}</th>
+							<td>${productTotalCost.toFixed(2)}</th>
 						</tr>
 						<tr>
 							<th>в т.ч. ПДВ</th>
