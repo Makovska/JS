@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 2 - Task 5</title>
+</head>
+<body>
+	<h1 class="section">Задача 5</h1>
+		<div class="section">
+			<h2>Дано кількість секунд, що пройшла від початку доби. Визначити скільки це годин і хвилин.</h2>
+		</div>
+		<div class="section">
+			<h2>Відповідь</h2>
+			<script>
+				//Вводимо необхідні дані
+				let seconds = parseInt(prompt('Введіть кількість секунд, що пройшла від початку доби', '0'));
+
+				const MINUTES_IN_HOUR = 60,
+					SECONDS_IN_MINUTE = 60;
+	
+				//Знаходимо результат
+				let minutesTotal = Math.floor(seconds / SECONDS_IN_MINUTE),
+					hours = Math.floor(minutesTotal / MINUTES_IN_HOUR),
+					minutes = Math.floor(minutesTotal % MINUTES_IN_HOUR);
+	
+				//Виводимо результат
+				document.write(`
+					<p>Від початку доби пройшло ${seconds} сек., або ${hours} год. та ${minutes} хв.</p>
+				`)
+			</script>
+		</div>
+</body>
+</html>
