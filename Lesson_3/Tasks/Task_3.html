@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 3 - Task 3</title>
+</head>
+<body>
+	<h1 class="section">Задача 3</h1>
+		<div class="section">
+			<h2>Випадковим чином генерується число від 1 до 5. Спробуйте вгадати число за 2 спроби.</h2>
+		</div>
+		<div class="section">
+			<h2>Відповідь</h2>
+			<script>
+				//Вводимо необхідні дані
+				const minNumber = 1,
+					maxNumber = 5;
+
+				let numberHidden = minNumber + Math.floor(Math.random() * (maxNumber - minNumber +1)),
+					numberEntered = parseInt(prompt('Спробуйте вгадати число за 2 спроби. Введіть число від 1 до 5', '1')),
+					result = 'Ви вгадали! Вітаю!';
+	
+				//Знаходимо результат
+				if (numberEntered >= minNumber && numberEntered <= maxNumber) {
+					if (numberEntered !== numberHidden) {
+						if (numberEntered > numberHidden) {
+							numberEntered = parseInt(prompt('Спробуйте менше число', '1'));
+							if (numberEntered !== numberHidden) {
+								result = 'На жаль ви не вгадали... Спробуйте наступного разу'}
+						} else if (numberEntered < numberHidden) {
+							numberEntered = parseInt(prompt('Спробуйте більше число', '5'));
+							if (numberEntered !== numberHidden) {
+								result = 'На жаль ви не вгадали... Спробуйте наступного разу'}
+						}
+					}
+				} else {
+					numberEntered = parseInt(prompt('Введене число не відповідає вимогам. Введіть число від 1 до 5', '1'));
+				}
+	
+				//Виводимо результат
+				document.write(`
+					<p>${result}</p>
+				`)
+			</script>
+		</div>
+</body>
+</html>

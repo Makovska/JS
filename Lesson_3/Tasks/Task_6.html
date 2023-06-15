@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 3 - Task 6</title>
+</head>
+<body>
+	<h1 class="section">Задача 6</h1>
+		<div class="section">
+			<h2>З клавіатури вводиться номер дня тижня. Вивести на екран назву дня.</h2>
+		</div>
+		<div class="section">
+			<h2>Відповідь</h2>
+			<script>
+				//Вводимо необхідні дані
+				let dayWeekNumber = parseInt(prompt('Введіть номер дня тижня', '1')),
+					result = 'Введено не коректне число.';
+	
+				//Знаходимо результат
+				switch (dayWeekNumber) {
+					case 1:
+						result = 'Понеділок';
+						break;
+					case 2:
+						result = 'Вівторок';
+						break;
+					case 3:
+						result = 'Середа';
+						break;
+					case 4:
+						result = 'Четвер';
+						break;
+					case 5:
+						result = "П'ятниця";
+						break;
+					case 6:
+						result = 'Субота';
+						break;
+					case 7:
+						result = 'Неділя';
+						break;
+				}
+	
+				//Виводимо результат
+				document.write(`
+					<p>${result}</p>
+				`)
+			</script>
+		</div>
+</body>
+</html>
