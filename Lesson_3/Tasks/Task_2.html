@@ -22,7 +22,7 @@
 	
 				//Знаходимо результат
 				if (moneyCount > 0) {
-					if (moneyCount > productPrice) {
+					if (moneyCount >= productPrice) {
 						result = 'Ваша покупка успішно сплачена!';
 						if (moneyCount - productPrice >= 4) {
 							result += ' Не бажаєте спробувати свою вдачу з нашими лотереями?'
