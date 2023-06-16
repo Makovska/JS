@@ -21,23 +21,19 @@
 
 				let numberHidden = minNumber + Math.floor(Math.random() * (maxNumber - minNumber +1)),
 					numberEntered = parseInt(prompt('Спробуйте вгадати число за 2 спроби. Введіть число від 1 до 5', '1')),
-					result = 'Ви вгадали! Вітаю!';
+					result = 'На жаль ви не вгадали... Спробуйте наступного разу';
 	
 				//Знаходимо результат
-				if (numberEntered >= minNumber && numberEntered <= maxNumber) {
-					if (numberEntered !== numberHidden) {
-						if (numberEntered > numberHidden) {
-							numberEntered = parseInt(prompt('Спробуйте менше число', '1'));
-							if (numberEntered !== numberHidden) {
-								result = 'На жаль ви не вгадали... Спробуйте наступного разу'}
-						} else if (numberEntered < numberHidden) {
-							numberEntered = parseInt(prompt('Спробуйте більше число', '5'));
-							if (numberEntered !== numberHidden) {
-								result = 'На жаль ви не вгадали... Спробуйте наступного разу'}
-						}
-					}
+				if (numberEntered === numberHidden) {
+					result = 'Ви вгадали! Вітаю!'
+				} else if (numberEntered > numberHidden) {
+						numberEntered = parseInt(prompt('Спробуйте менше число', '1'));
+						if (numberEntered === numberHidden) {
+							result = 'Ви вгадали! Вітаю!'}
 				} else {
-					numberEntered = parseInt(prompt('Введене число не відповідає вимогам. Введіть число від 1 до 5', '1'));
+					numberEntered = parseInt(prompt('Спробуйте більше число', '5'));
+					if (numberEntered === numberHidden) {
+						result = 'Ви вгадали! Вітаю!'}
 				}
 	
 				//Виводимо результат
