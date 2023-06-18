@@ -17,11 +17,10 @@
 			<script>
 				//Вводимо необхідні дані
 				let userAge = parseInt(prompt('Введіть Ваш вік', '1')),
-				result = 'Введено не коректні дані...';
+				result;
 	
 				//Знаходимо результат
-				if (userAge > 0) {
-					if (userAge <= 6) {
+				if (userAge <= 6) {
 						result = 'Вітаю, дошкільня!';
 					} else 
 					if (userAge <= 17) {
@@ -35,7 +34,6 @@
 					} else {
 						result = 'Вітаю, пенсіонер!';
 					}
-				}
 	
 				//Виводимо результат
 				document.write(`
