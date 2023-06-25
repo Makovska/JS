@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 5 - Task 1</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 1</h1>
+	<div class="section">
+		<h2>Вивести з використанням циклів маркований список з випадковими числами (1-100). Кількість випадкових чисел
+			вводиться
+			користувачем.
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<ul>
+			<script>
+				//Вводимо необхідні дані
+				const minNumber = 1,
+					maxNumber = 100;
+
+				let numbersCount = parseInt(prompt('Яку кількість випадкових чисел бажаєте?', '3'));
+
+				//Виводимо результат
+				for (let i = 0; i < numbersCount; i++) {
+					let numberRandom = minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1));
+					document.write(`<li>${numberRandom}</li>`);
+				}
+			</script>
+		</ul>
+
+	</div>
+</body>
+
+</html>

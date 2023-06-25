@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 5 - Task 5</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 5</h1>
+	<div class="section">
+		<h2>Вивести таблицю (з нумерацією від 1 до 9).
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<table>
+			<script>
+				//Виводимо результат
+				for (let rowNumber = 0; rowNumber < 3; rowNumber++) {
+					document.write(`
+								<tr>
+								`);
+
+					for (let columnNumber = 1; columnNumber <= 3; columnNumber++) {
+						document.write(`
+								<th>${columnNumber + rowNumber * 3}</th>
+								`);
+					}
+
+					document.write(`
+								</tr>
+								`);
+				}
+
+			</script>
+		</table>
+	</div>
+</body>
+
+</html>

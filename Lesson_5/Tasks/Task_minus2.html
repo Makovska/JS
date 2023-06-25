@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 5 - Task -2</title>
+</head>
+
+<body>
+	<h1 class="section">Задача -2</h1>
+	<div class="section">
+		<h2>Поступово генерувати 100 випадкових чисел від 1 до 1000. Підрахувати яких чисел більше: парних чи непарних.
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+			//Вводимо необхідні дані
+			const minNumber = 1,
+				maxNumber = 1000;
+
+			let numbersEven = 0,
+				numbersOdd = 0;
+
+			//Знаходимо результат
+			for (let i = 1; i <= 100; i++) {
+				let numberRandom = minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1));
+				document.write(`<p>Випадкове число № ${i}: ${numberRandom}</p>`);
+				if (numberRandom % 2 === 0) {
+					numbersEven++
+				} else {
+					numbersOdd++
+				}
+			}
+
+			//Виводимо результат
+			document.write(`
+					<p>Парних чисел ${numbersEven}.</p>
+					<p>Непарних чисел ${numbersOdd}.</p>
+				`)
+		</script>
+	</div>
+</body>
+
+</html>
