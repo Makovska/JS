@@ -8,9 +8,9 @@
 	box-sizing: border-box;
 }
 
-li {
+/* li {
 	list-style: none;
-}
+} */
 
 a,
 a:visited {
@@ -123,4 +123,49 @@ th {
 }
 caption {
 	margin-bottom: 10px;
+}
+button {
+	display: inline-block;
+	padding: 10px 20px;
+	border: 1px solid green;
+	color: rgb(189, 91, 0);
+	font-size: 20px;
+	margin-right: 25px;
+	border-radius: 5px;
+	box-shadow: 5px 5px 10px rgba(51, 51, 51, 0.8);
+	cursor: pointer;
+	background-color: rgb(159, 190, 180);
+}
+.section:hover button {
+	color: rgb(230, 230, 230);
+	text-shadow: 2px 2px 5px rgba(51, 51, 51, 0.8);
+}
+li {
+	color: black;
+	font-size: 16px;
+	margin-left: 25px;
+}
+label {
+	color: black;
+	font-size: 20px;
+	margin-right: 25px;
+}
+input {
+	border: 1px solid green;
+	box-shadow: 5px 5px 10px rgba(51, 51, 51, 0.8);
+	padding: 3px 5px;
+}
+button:hover,
+input:hover {
+	box-shadow: 1px 1px 5px rgba(51, 51, 51, 0.8);
+}
+.input {
+	width: 320px;
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: space-between;
+}
+table {
+	display: inline-block;
+	margin-right: 20px;
 }
