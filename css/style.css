@@ -173,3 +173,9 @@ h3 {
 	margin-top: 20px;
 	font-size: 20px;
 }
+hr {
+	display: block;
+	margin: 10px 0;
+	border-style: inset;
+	border-width: 1px;
+}
