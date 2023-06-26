@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 5 - Task 7</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 7</h1>
+	<div class="section">
+		<h2>Вивести на екран N абзаців (N вводиться користувачем) за зразком.
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+			let paragraphsUserEnter = parseInt(prompt('Яку кількість абзаців необхідно вивести?', '3'));
+
+			//Виводимо результат
+			for (let titlesCount = 1; titlesCount <= paragraphsUserEnter; titlesCount++) {
+				document.write(`
+								<h3>Заголовок ${titlesCount}</h3>
+								`);
+				for (let paragraphsCount = 1; paragraphsCount <= titlesCount; paragraphsCount++) {
+					document.write(`
+								<p>Розділ ${titlesCount}, параграф ${paragraphsCount}</p>
+								`);
+				}
+				document.write(`
+								<hr>
+								`);
+			}
+		</script>
+	</div>
+</body>
+
+</html>
