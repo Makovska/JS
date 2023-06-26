@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 5 - Task 9</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 9</h1>
+	<div class="section">
+		<h2>Користувач загадує число. Комп’ютер задає питання поки не вгадає число користувача (використати confirm).
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+			const minNumber = 1,
+				maxNumber = 10;
+
+			let secretNumber = alert(`Загадайте число від ${minNumber} до ${maxNumber}`),
+				guessNumber;
+
+			do {
+				guessNumber = confirm(`Ви загадали ${minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1))} ?`);
+
+				if (guessNumber) {
+					alert('Число вгадано!')
+					break
+				} else {
+					alert('Число не вгадано!')
+				}
+			} while (!guessNumber);
+
+		</script>
+	</div>
+</body>
+
+</html>
