@@ -21,15 +21,18 @@
 		<table>
 			<script>
 				//Виводимо результат
+				let cellNumber = 1;
+
 				for (let rowNumber = 0; rowNumber < 3; rowNumber++) {
 					document.write(`
 								<tr>
 								`);
 
-					for (let columnNumber = 1; columnNumber <= 3; columnNumber++) {
+					for (let columnNumber = 0; columnNumber < 3; columnNumber++) {
 						document.write(`
-								<th>${columnNumber + rowNumber * 3}</th>
+								<th>${cellNumber}</th>
 								`);
+						cellNumber++;
 					}
 
 					document.write(`
