@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 5 - Task 13</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 13</h1>
+	<div class="section">
+		<h2>Морський бій. Комп’ютер випадково розташовує одиночний корабель на полі розміром N*M. Маючи К снарядів
+			користувач
+			намагається потопити корабель.
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+			let fieldWidth = parseInt(prompt('Задайте ширину поля (кількість клітинок)', '3')),
+				fieldHeight = parseInt(prompt('Задайте висоту поля (кількість клітинок)', '3')),
+				shots = 1 + Math.floor(Math.random() * 5),
+				shipHorizontal = 1 + Math.floor(Math.random() * fieldWidth),
+				shipVertical = 1 + Math.floor(Math.random() * fieldHeight);
+
+			alert(`Спробуйте потопити одиночний корабель на полі розміром ${fieldHeight} на ${fieldWidth}, маючи ${shots} снарядів.`)
+
+			//.....................................................................
+			//Варіант 1
+
+			// do {
+			// 	let shotHorizontal = parseInt(prompt(`Постріл по горизонталі (від 1 до ${fieldWidth})`, '1')),
+			// 		shotVertical = parseInt(prompt(`Постріл по вертикалі (від 1 до ${fieldHeight})`, '1'));
+
+			// 	if (shotHorizontal === shipHorizontal && shotVertical === shipVertical) {
+			// 		alert('Влучний постріл! Вітаю!');
+			// 		break
+			// 	} else {
+			// 		shots--;
+			// 		alert(`Не влучили! Маєте ще ${shots} снарядів.`);
+			// 	}
+			// } while (shots > 0);
+
+			//.....................................................................
+			//Варіант 2
+
+			for (shot = 1; shot <= shots; shot++) {
+				let shotHorizontal = parseInt(prompt(`Постріл по горизонталі (від 1 до ${fieldWidth})`, '1')),
+					shotVertical = parseInt(prompt(`Постріл по вертикалі (від 1 до ${fieldHeight})`, '1'));
+
+				if (shotHorizontal === shipHorizontal && shotVertical === shipVertical) {
+					alert('Влучний постріл! Вітаю!');
+					break
+				} else {
+					alert(`Не влучили! Маєте ще ${shots - shot} снарядів.`);
+				}
+			}
+			//.....................................................................
+
+		</script>
+	</div>
+</body>
+
+</html>
