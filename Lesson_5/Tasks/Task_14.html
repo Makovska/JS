@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 5 - Task 14</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 14</h1>
+	<div class="section">
+		<h2>Каса. Користувачу повідомляють суму, яку йому треба сплатити. Користувач поступово вводить суму грошей до тих
+			пір, поки
+			суми не буде достатньо для оплати товарів (кожного разу користувачу повідомляють, яку ще суму потрібно ввести).
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+			let needToPay = parseInt((Math.random() * 100).toFixed(2));
+
+			alert(`Сума до сплати ${needToPay}.`)
+
+			do {
+				let buyerPaid = parseInt(prompt(`Внесіть суму ${needToPay}`));
+
+				if (buyerPaid === needToPay) {
+					alert('Сплачено. Приходьте ще!');
+					break
+				} else if (buyerPaid > needToPay) {
+					alert(`Сплачено. Ваша решта ${buyerPaid - needToPay}. Приходьте ще!`);
+					break
+				} else {
+					needToPay -= buyerPaid;
+				}
+			} while (needToPay > 0);
+
+		</script>
+	</div>
+</body>
+
+</html>
