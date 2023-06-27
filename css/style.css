@@ -124,7 +124,8 @@ th {
 caption {
 	margin-bottom: 10px;
 }
-button {
+button,
+.slot__btn {
 	display: inline-block;
 	padding: 10px 20px;
 	border: 1px solid green;
@@ -136,7 +137,8 @@ button {
 	cursor: pointer;
 	background-color: rgb(159, 190, 180);
 }
-.section:hover button {
+.section:hover button,
+.section:hover .slot__btn {
 	color: rgb(230, 230, 230);
 	text-shadow: 2px 2px 5px rgba(51, 51, 51, 0.8);
 }
@@ -156,7 +158,8 @@ input {
 	padding: 3px 5px;
 }
 button:hover,
-input:hover {
+input:hover,
+.slot__btn:hover {
 	box-shadow: 1px 1px 5px rgba(51, 51, 51, 0.8);
 }
 .input {
@@ -178,4 +181,35 @@ hr {
 	margin: 10px 0;
 	border-style: inset;
 	border-width: 1px;
+}
+.slot {
+	display: flex;
+	flex-direction: column;
+}
+.slot__machine {
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+.slot__position {
+	flex: 0 1 20%;
+	padding: 20px;
+	border: 1px solid green;
+	border-radius: 5px;
+	box-shadow: 5px 5px 10px rgba(51, 51, 51, 0.8);
+}
+.slot__position img {
+	width: 100%;
+}
+.slot__btn {
+	align-self: center;
+	margin-bottom: 20px;
+	font-size: 30px;
+	text-align: center;
+}
+.slot__win {
+	color: rgb(189, 91, 0);
+	font-size: 30px;
+	text-align: center;
 }
