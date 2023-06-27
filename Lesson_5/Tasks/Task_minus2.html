@@ -42,6 +42,20 @@
 					<p>Парних чисел ${numbersEven}.</p>
 					<p>Непарних чисел ${numbersOdd}.</p>
 				`)
+
+			if (numbersEven > numbersOdd) {
+				document.write(`
+					<p>Парних чисел більше.</p>
+				`)
+			} else if (numbersEven < numbersOdd) {
+				document.write(`
+					<p>Непарних чисел більше.</p>
+				`)
+			} else {
+				document.write(`
+					<p>Парних і непарних чисел однакова кількість.</p>
+				`)
+			}
 		</script>
 	</div>
 </body>
