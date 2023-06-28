@@ -21,12 +21,12 @@
 	<div class="section">
 		<h2>Відповідь</h2>
 		<script>
-			let needToPay = parseInt(Math.random() * 100);
+			let needToPay = parseFloat((Math.random() * 100).toFixed(2));
 
 			alert(`Сума до сплати ${needToPay}.`)
 
 			do {
-				let buyerPaid = parseInt(prompt(`Внесіть суму ${needToPay}`));
+				let buyerPaid = parseFloat(prompt(`Внесіть суму ${needToPay}`));
 
 				if (buyerPaid === needToPay) {
 					alert('Сплачено. Приходьте ще!');
