@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 5 - Task 0</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 0</h1>
+	<div class="section">
+		<h2>Вивести на екран
+			<pre>
+				A B C D E
+				B C D E F
+				C D E F G
+				D E F G H
+				E F G H I
+			</pre>
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<ul>
+			<script>
+				const startLetter = 'A'.charCodeAt(0);
+
+				for (let row = 0; row < 5; row++) {
+					document.write(`<p>`);
+					for (let letter = startLetter; letter < startLetter + 5; letter++) {
+						document.write(`${String.fromCharCode(letter + row)} `);
+					}
+					document.write(`</p>`);
+				}
+			</script>
+		</ul>
+
+	</div>
+</body>
+
+</html>
