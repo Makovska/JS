@@ -7,35 +7,28 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="../../css/style.css">
-	<title>Lesson 6 - Task 0</title>
+	<title>Lesson 6 - Task 3.1.</title>
 </head>
 
 <body>
-	<h1 class="section">Задача 0</h1>
+	<h1 class="section">Задача 3.1.</h1>
 	<div class="section">
-		<h2>Вивести на екран
-			<pre>
-				A B C D E
-				B C D E F
-				C D E F G
-				D E F G H
-				E F G H I
-			</pre>
+		<h2>Відобразити трикутник за допомогою символів «о» (left reverse).
 		</h2>
 	</div>
 	<div class="section">
 		<h2>Відповідь</h2>
 		<ul>
 			<script>
-				const startLetter = 'A'.charCodeAt(0);
 
-				for (let row = 0; row < 5; row++) {
-					document.write(`<p>`);
-					for (let letter = startLetter; letter < startLetter + 5; letter++) {
-						document.write(`${String.fromCharCode(letter + row)} `);
+				for (let row = 1; row <= 12; row++) {
+					document.write(`<p style="text-align: center;">`);
+					for (let symbol = 12; symbol >= row; symbol--) {
+						document.write(`<span>o</span>`)
 					}
-					document.write(`</p>`);
+					document.write(`<p>`)
 				}
+
 			</script>
 		</ul>
 

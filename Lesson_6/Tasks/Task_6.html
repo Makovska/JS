@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 6 - Task 6</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 6</h1>
+	<div class="section">
+		<h2>Інвестор вклав S тис. грн на 20 років під 20% річних, податок складає 5% від суми прибутку. Визначити за
+			допомогою циклів
+			суму, яку він одержить.
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<ul>
+			<script>
+				const startSum = parseFloat(prompt('Початкова сума', '100')),
+					depositTerm = parseInt(prompt('Термін вкладу', '20')),
+					depositRate = parseFloat(prompt('Відсоткова ставка вкладу', '20')),
+					tax = 5;
+				let profitTotal = startSum;
+
+				for (let year = 0; year < depositTerm; year++) {
+					profitPerYear = profitTotal * depositRate / 100;
+					taxPerYear = profitPerYear * tax / 100;
+					profitTotal += profitPerYear - taxPerYear
+				}
+
+				alert(profitTotal)
+
+			</script>
+		</ul>
+
+	</div>
+</body>
+
+</html>
