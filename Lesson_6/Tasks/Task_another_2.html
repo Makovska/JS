@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 6 - Task another-2.</title>
+</head>
+
+<body>
+	<h1 class="section">Задача another-2.</h1>
+	<div class="section">
+		<h2>Знайти суму цифр числа, що знаходяться між першою цифрою 7 і останньою цифрою 7 (у числі є всього дві цифри 7,
+			наприклад: 2679328712)
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+
+			let number = '2679328712';
+			// const number = prompt('Введіть число', '2679328712');
+			let sum = 0;
+
+			let i = 0;
+
+			// Варіант 1 ********************************************************
+			while (parseInt(number[i]) !== 7 && i < number.length) {
+				i++
+			}
+			i++;
+			while (parseInt(number[i]) !== 7 && i < number.length) {
+				sum += parseInt(number[i]);
+				i++
+			}
+			
+			// Варіант 2 ********************************************************
+			// for (let i = 0; i < number.length; i++) {
+			// 	if (parseInt(number[i]) === 7) {
+			// 		i++;
+			// 		do {
+			// 			sum += parseInt(number[i]);
+			// 			i++;
+			// 		} while (parseInt(number[i]) !== 7);
+			// 	}
+			// }
+
+			document.write(`<p>${sum}</p>`)
+
+		</script>
+
+	</div>
+</body>
+
+</html>

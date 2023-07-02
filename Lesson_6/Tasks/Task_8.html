@@ -7,25 +7,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="../../css/style.css">
-	<title>Lesson 6 - Task 3.1.</title>
+	<title>Lesson 6 - Task 8</title>
 </head>
 
 <body>
-	<h1 class="section">Задача 3.1.</h1>
+	<h1 class="section">Задача 8</h1>
 	<div class="section">
-		<h2>Відобразити трикутник за допомогою символів «о» (left reverse).
+		<h2>Вивести на екран послідовність символів: а о а о а о а о а о … Всього символів 82.
 		</h2>
 	</div>
 	<div class="section">
 		<h2>Відповідь</h2>
 		<script>
 
-			for (let row = 1; row <= 12; row++) {
-				document.write(`<p style="text-align: center;">`);
-				for (let symbol = 12; symbol >= row; symbol--) {
-					document.write(`<span>o</span>`)
-				}
-				document.write(`<p>`)
+			for (let i = 0; i < 41; i++) {
+				document.write(`<span>a o </span>`)
 			}
 
 		</script>

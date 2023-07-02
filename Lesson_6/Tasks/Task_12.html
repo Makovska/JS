@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 6 - Task 11.1.</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 11.1.</h1>
+	<div class="section">
+		<h2>Написати програму виведення на екран кожного символу латинського алфавіту та поруч з кожним з них символу, що
+			передує
+			йому та що слідує за ним.
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+
+			const startLetter = 'A'.charCodeAt(0),
+				lastLetter = startLetter + 26;
+
+			for (let letter = startLetter; letter < lastLetter; letter++) {
+				document.write(`<p>${String.fromCharCode(letter, letter - 1, letter + 1)}</p>`)
+			}
+
+		</script>
+
+	</div>
+</body>
+
+</html>

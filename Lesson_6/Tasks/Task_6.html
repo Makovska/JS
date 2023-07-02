@@ -20,24 +20,22 @@
 	</div>
 	<div class="section">
 		<h2>Відповідь</h2>
-		<ul>
-			<script>
-				const startSum = parseFloat(prompt('Початкова сума', '100')),
-					depositTerm = parseInt(prompt('Термін вкладу', '20')),
-					depositRate = parseFloat(prompt('Відсоткова ставка вкладу', '20')),
-					tax = 5;
-				let profitTotal = startSum;
+		<script>
+			const startSum = parseFloat(prompt('Початкова сума', '100')),
+				depositTerm = parseInt(prompt('Термін вкладу', '20')),
+				depositRate = parseFloat(prompt('Відсоткова ставка вкладу', '20')),
+				tax = 5;
+			let profitTotal = startSum;
 
-				for (let year = 0; year < depositTerm; year++) {
-					profitPerYear = profitTotal * depositRate / 100;
-					taxPerYear = profitPerYear * tax / 100;
-					profitTotal += profitPerYear - taxPerYear
-				}
+			for (let year = 0; year < depositTerm; year++) {
+				profitPerYear = profitTotal * depositRate / 100;
+				taxPerYear = profitPerYear * tax / 100;
+				profitTotal += profitPerYear - taxPerYear
+			}
 
-				alert(profitTotal)
+			alert(profitTotal)
 
-			</script>
-		</ul>
+		</script>
 
 	</div>
 </body>
