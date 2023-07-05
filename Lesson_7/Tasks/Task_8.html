@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 7 - Task 8</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 8</h1>
+	<div class="section">
+		<h2>Створити функцію, яка виводить банер (у функцію передаються: зображення, заголовок та посилання, куди
+			переходимо при
+			кліку на зображення (тег img повине знаходитись у середині тега a)
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+			function showBanner(pathToImage, titleOfBanner, linkFromBanner) {
+				document.write(`
+				<div class="banner">
+					<a class="banner__link" href="${linkFromBanner}">
+						<img class="banner__image" src="${pathToImage}" alt="image">
+					</a>
+					<h4 class="banner__title">${titleOfBanner}</h4>
+				</div>`)
+			}
+
+			let pathToImageUserEntered = prompt('Введіть посилання на зображення для банеру', '../../img/banner_1.png'),
+				titleOfBannerUserEntered = prompt('Введіть заголовок банеру', 'Урок №7'),
+				linkFromBannerUserEntered = prompt('Введіть посилання, куди переходимо при кліку на зображення', 'https://www.youtube.com/watch?v=RYBHlcV-L40');
+
+			showBanner(pathToImageUserEntered, titleOfBannerUserEntered, linkFromBannerUserEntered)
+
+		</script>
+
+	</div>
+</body>
+
+</html>
