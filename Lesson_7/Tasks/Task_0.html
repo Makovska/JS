@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 7 - Task 0</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 0</h1>
+	<div class="section">
+		<h2>Створити функцію, яка за номером місяця повертає пору року, до якої відноситься цей місяць.
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+			function getSeason(monthNumber) {
+				let result;
+				switch (monthNumber) {
+					case 12:
+					case 1:
+					case 2:
+						result = 'Зима';
+						break;
+					case 3:
+					case 4:
+					case 5:
+						result = 'Весна';
+						break;
+					case 6:
+					case 7:
+					case 8:
+						result = 'Літо';
+						break;
+					case 9:
+					case 10:
+					case 11:
+						result = 'Осінь';
+						break;
+				}
+				return result
+			}
+
+			let monthNumberUserEntered = parseInt(prompt('Введіть номер місяцю'));
+
+			alert(getSeason(monthNumberUserEntered))
+		</script>
+
+	</div>
+</body>
+
+</html>
