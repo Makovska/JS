@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 7 - Task 5</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 5</h1>
+	<div class="section">
+		<h2>Створити функцію, яка створює таблицю з вказаною кількістю рядків і стовпців (таблиця заповнюється заданим
+			фіксованим
+			повідомленням).
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+			function convertCentimetersToInches(rows, columns, message) {
+				document.write(`<table>`)
+				for (let row = 0; row < rows; row++) {
+					document.write(`<tr>`);
+					for (let column = 0; column < columns; column++) {
+						document.write(`<td>${message}</td>`)
+					}
+					document.write(`</tr>`)
+				}
+				document.write(`</table>`)
+			}
+
+			let rowsUserEntered = parseInt(prompt('Задайте кількість рядків таблиці', '3')),
+				columnsUserEntered = parseInt(prompt('Задайте кількість стовпців таблиці', '3')),
+				messageUserEntered = prompt('Повідомлення таблиці', 'Привіт');
+
+			convertCentimetersToInches(rowsUserEntered, columnsUserEntered, messageUserEntered)
+
+		</script>
+
+	</div>
+</body>
+
+</html>
