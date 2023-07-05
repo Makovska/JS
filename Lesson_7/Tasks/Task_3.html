@@ -23,24 +23,23 @@
 	<div class="section">
 		<h2>Відповідь</h2>
 		<script>
-			function getSum(a, b, c, d) {
-				return a + b + c + d
+			function getSum(num1, num2, num3, num4) {
+				return num1 + num2 + num3 + num4
 			}
 
-			function getMultiplication(a, b, c, d) {
-				return a * b * c * d
+			function getMultiplication(num1, num2, num3, num4) {
+				return num1 * num2 * num3 * num4
 			}
 
-			function getAverage(a, b, c, d) {
-				return (a + b + c + d) / 4
+			function getAverage(num1, num2, num3, num4) {
+				return (num1 + num2 + num3 + num4) / 4
 			}
 
-			function getMin(a, b, c, d) {
-				let min = +Infinity;
-				min = a < min ? a : min;
-				min = b < min ? b : min;
-				min = c < min ? c : min;
-				min = d < min ? d : min;
+			function getMin(num1, num2, num3, num4) {
+				let min = num1;
+				min = num2 < min ? num2 : min;
+				min = num3 < min ? num3 : min;
+				min = num4 < min ? num4 : min;
 				return min
 			}
 
