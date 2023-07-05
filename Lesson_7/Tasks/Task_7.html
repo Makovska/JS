@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 7 - Task 7</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 7</h1>
+	<div class="section">
+		<h2>Створити функцію, яка випадковим чином виводить на екран одне із 4 зображень (шляхи до зображень передаються у
+			функцію)
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+			function showRandomImage(pathToImage) {
+				let imageNum = 1 + Math.floor(Math.random() * 4);
+				document.write(`<img src="${pathToImage}/slot_${imageNum}.png" alt="image">`)
+			}
+
+			showRandomImage('../../img')
+
+		</script>
+
+	</div>
+</body>
+
+</html>
