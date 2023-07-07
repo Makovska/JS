@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 8 - Task 2</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 2</h1>
+	<div class="section">
+		<h2>Дано масив, який зберігає кількість відвідувачів магазину протягом тижня.
+			Вивести на екран:
+			<ul>
+				<li>номери днів, протягом яких кількість відвідувачів була меншою за 20;</li>
+				<li>номери днів, коли кількість відвідувачів була мінімальною;</li>
+				<li>номери днів, коли кількість відвідувачів була максимальною;</li>
+				<li>загальну кількість клієнтів у робочі дні та окремо загальну кількість клієнтів на вихідних.</li>
+			</ul>
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+			//визначаємо кількість днів у місяці
+			let monthLength = 28 + Math.floor(Math.random() * (31 - 28 + 1));
+			document.write(`
+			<p>Кількість днів у місяці - ${monthLength}</p><hr>`)
+
+			//визначаємо, яким днем тижня є перший день місяця
+			let dayOfFeek = 0 + Math.floor(Math.random() * 6),
+				firstDayOfFeek;
+			switch (dayOfFeek) {
+				case 0: firstDayOfFeek = 'Понеділок';
+					break;
+				case 1: firstDayOfFeek = 'Вівторок';
+					break;
+				case 2: firstDayOfFeek = 'Середа';
+					break;
+				case 3: firstDayOfFeek = 'Четвер';
+					break;
+				case 4: firstDayOfFeek = "П'ятниця";
+					break;
+				case 5: firstDayOfFeek = 'Субота';
+					break;
+				case 6: firstDayOfFeek = 'Неділя';
+					break;
+			}
+			document.write(`
+			<p>Перший день - ${firstDayOfFeek}</p><hr>`)
+
+			//формуємо масив відвідування з урахуванням дня тижня
+			//дні від понеділка до першого дня місяця - заповнюються нулями
+			//дні від останнього дня місяця до повного тижня - заповнюються нулями
+			//зробила для підрахунку відвідуваності в робочі та вихідні дні
+			let countVisitors = [];
+
+			for (let i = 0; i < dayOfFeek; i++) {
+				countVisitors.push(0);
+			}
+
+			for (let i = 0; i < monthLength; i++) {
+				countVisitors.push(1 + Math.floor(Math.random() * 100));
+				document.write(`<p>День № ${i + 1} - ${countVisitors[i + dayOfFeek]}</p>`)
+			}
+
+			//Кількість днів від останнього дня місяця до повного тижня
+			let restDays = 35 - countVisitors.length;
+			for (let i = 0; i < restDays; i++) {
+				countVisitors.push(0);
+			}
+
+			//Oстанній день місяця у масиві
+			let lastDayInArray = dayOfFeek + monthLength;
+
+
+			//номери днів, протягом яких кількість відвідувачів була меншою за 20
+			function printDaysWithVisitorsLess20(visitors) {
+				for (let day = dayOfFeek; day < lastDayInArray; day++) {
+					if (visitors[day] < 20) {
+						document.write(`<p>День номер ${day - dayOfFeek + 1}</p>`)
+					}
+				}
+			}
+			document.write(`
+			<hr>
+			<p>Номери днів, протягом яких кількість відвідувачів була меншою за 20</p>`)
+			printDaysWithVisitorsLess20(countVisitors)
+
+
+			//номери днів, коли кількість відвідувачів була мінімальною
+			function printDaysWithMinCountVisitors(visitors) {
+				let MinCountVisitors = Infinity;
+				for (let day = dayOfFeek; day < lastDayInArray; day++) {
+					if (visitors[day] < MinCountVisitors) {
+						MinCountVisitors = visitors[day]
+					}
+				}
+				for (let day = dayOfFeek; day < lastDayInArray; day++) {
+					if (visitors[day] === MinCountVisitors) {
+						document.write(`<p>День номер ${day - dayOfFeek + 1}</p>`)
+					}
+				}
+			}
+
+			document.write(`
+			<hr>
+			<p>Номери днів, коли кількість відвідувачів була мінімальною</p>`)
+			printDaysWithMinCountVisitors(countVisitors)
+
+
+			//номери днів, коли кількість відвідувачів була максимальною
+			function printDaysWithMaxCountVisitors(visitors) {
+				let MaxCountVisitors = -Infinity;
+				for (let day = dayOfFeek; day < lastDayInArray; day++) {
+					if (visitors[day] > MaxCountVisitors) {
+						MaxCountVisitors = visitors[day]
+					}
+				}
+				for (let day = dayOfFeek; day < lastDayInArray; day++) {
+					if (visitors[day] === MaxCountVisitors) {
+						document.write(`<p>День номер ${day - dayOfFeek + 1}</p>`)
+					}
+				}
+			}
+
+			document.write(`
+			<hr>
+			<p>Номери днів, коли кількість відвідувачів була максимальною</p>`)
+			printDaysWithMaxCountVisitors(countVisitors)
+
+
+			//загальну кількість клієнтів у робочі дні та окремо загальну кількість клієнтів на вихідних
+			function getWorkDaysCountVisitors(visitors) {
+				let WorkDaysCountVisitors = 0;
+				for (let day = 0; day < visitors.length; day += 7) {
+					WorkDaysCountVisitors += visitors[day] + visitors[day + 1] + visitors[day + 2] + visitors[day + 3] + visitors[day + 4]
+				}
+				document.write(`<p>${WorkDaysCountVisitors}</p>`)
+			}
+
+			function getWeekendCountVisitors(visitors) {
+				let WeekendCountVisitors = 0;
+				for (let day = 0; day < visitors.length; day += 7) {
+					WeekendCountVisitors += visitors[day + 5] + visitors[day + 6]
+				}
+				document.write(`<p>${WeekendCountVisitors}</p>`)
+			}
+
+			document.write(`
+			<hr>
+			<p>Загальна кількість клієнтів у робочі дні</p>`)
+			getWorkDaysCountVisitors(countVisitors)
+			document.write(`
+			<p>Загальна кількість клієнтів у вихідні дні</p>`)
+			getWeekendCountVisitors(countVisitors)
+
+
+			let totalCountVisitors = 0;
+			for (let day = 0; day < countVisitors.length; day++) {
+				totalCountVisitors += countVisitors[day];
+			}
+			document.write(`
+			<hr>
+			<p>Загальна кількість клієнтів ${totalCountVisitors}</p>
+			`)
+
+		</script>
+
+	</div>
+</body>
+
+</html>
