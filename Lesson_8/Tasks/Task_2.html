@@ -27,7 +27,7 @@
 		<h2>Відповідь</h2>
 		<script>
 
-			alert('Я дуже вибачаюсь, але не вірно прочитала умову задачі і замість "тижня" зробила за "місяць". Коду вийшло забагато. Якщо не маєте часу та бажання, пропустіть. Воно якось працює, і то вже досягнення для мене ))')
+			//alert('Я дуже вибачаюсь, але не вірно прочитала умову задачі і замість "тижня" зробила за "місяць". Коду вийшло забагато. Якщо не маєте часу та бажання, пропустіть. Воно якось працює, і то вже досягнення для мене ))')
 
 			//визначаємо кількість днів у місяці - рандомно
 			let monthLength = 28 + Math.floor(Math.random() * (31 - 28 + 1));
@@ -145,7 +145,7 @@
 						WorkDaysCountVisitors += visitors[workDay + day]
 					}
 				}
-				document.write(`<p>${WorkDaysCountVisitors}</p>`)
+				return WorkDaysCountVisitors
 			}
 
 			function getWeekendCountVisitors(visitors) {
@@ -155,16 +155,13 @@
 						WeekendCountVisitors += visitors[WeekendDay + day]
 					}
 				}
-				document.write(`<p>${WeekendCountVisitors}</p>`)
+				return WeekendCountVisitors
 			}
 
 			document.write(`
 			<hr>
-			<p>Загальна кількість клієнтів у робочі дні</p>`)
-			getWorkDaysCountVisitors(countVisitors)
-			document.write(`
-			<p>Загальна кількість клієнтів у вихідні дні</p>`)
-			getWeekendCountVisitors(countVisitors)
+			<p>Загальна кількість клієнтів у робочі дні ${getWorkDaysCountVisitors(countVisitors)}</p>
+			<p>Загальна кількість клієнтів у вихідні дні ${getWeekendCountVisitors(countVisitors)}</p>`)
 
 
 			//для контролю
