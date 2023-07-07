@@ -26,12 +26,15 @@
 	<div class="section">
 		<h2>Відповідь</h2>
 		<script>
-			//визначаємо кількість днів у місяці
+
+			alert('Я дуже вибачаюсь, але не вірно прочитала умову задачі і замість "тижня" зробила за "місяць". Коду вийшло забагато. Якщо не маєте часу та бажання, пропустіть. Воно якось працює, і то вже досягнення для мене ))')
+
+			//визначаємо кількість днів у місяці - рандомно
 			let monthLength = 28 + Math.floor(Math.random() * (31 - 28 + 1));
 			document.write(`
 			<p>Кількість днів у місяці - ${monthLength}</p><hr>`)
 
-			//визначаємо, яким днем тижня є перший день місяця
+			//визначаємо, яким днем тижня є перший день місяця - рандомно
 			let dayOfFeek = 0 + Math.floor(Math.random() * 6),
 				firstDayOfFeek;
 			switch (dayOfFeek) {
@@ -138,7 +141,9 @@
 			function getWorkDaysCountVisitors(visitors) {
 				let WorkDaysCountVisitors = 0;
 				for (let day = 0; day < visitors.length; day += 7) {
-					WorkDaysCountVisitors += visitors[day] + visitors[day + 1] + visitors[day + 2] + visitors[day + 3] + visitors[day + 4]
+					for (let workDay = 0; workDay < 5; workDay++) {
+						WorkDaysCountVisitors += visitors[workDay + day]
+					}
 				}
 				document.write(`<p>${WorkDaysCountVisitors}</p>`)
 			}
@@ -146,7 +151,9 @@
 			function getWeekendCountVisitors(visitors) {
 				let WeekendCountVisitors = 0;
 				for (let day = 0; day < visitors.length; day += 7) {
-					WeekendCountVisitors += visitors[day + 5] + visitors[day + 6]
+					for (let WeekendDay = 5; WeekendDay < 7; WeekendDay++) {
+						WeekendCountVisitors += visitors[WeekendDay + day]
+					}
 				}
 				document.write(`<p>${WeekendCountVisitors}</p>`)
 			}
@@ -160,6 +167,7 @@
 			getWeekendCountVisitors(countVisitors)
 
 
+			//для контролю
 			let totalCountVisitors = 0;
 			for (let day = 0; day < countVisitors.length; day++) {
 				totalCountVisitors += countVisitors[day];
