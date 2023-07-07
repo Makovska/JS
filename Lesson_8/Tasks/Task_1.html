@@ -34,16 +34,20 @@
 				for (let score = 0; score < scores.length; score++) {
 					sumScores += scores[score]
 				}
-				return sumScores / K
+				return sumScores / scores.length
+			}
+
+			function getMinFromArray(array) {
+				let minFromArray = array[0];
+				for (let i = 1; i < array.length; i++) {
+					minFromArray = (array[i] < minFromArray) ? array[i] : minFromArray
+				}
+				return minFromArray
 			}
 
 			function getRank(scores) {
-				let minScore = scores[0];
-				for (let score = 1; score < scores.length; score++) {
-					minScore = (scores[score] < minScore) ? scores[score] : minScore
-				}
 				let rank;
-				switch (minScore) {
+				switch (getMinFromArray(scores)) {
 					case 2: rank = 'двійочник'
 						break;
 					case 3: rank = 'трійочник'
@@ -51,6 +55,8 @@
 					case 4: rank = 'хорошист'
 						break;
 					case 5: rank = 'відмінник'
+						break;
+					default: throw new Error('Некоректна оцінка')
 						break;
 				}
 				return rank
