@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 7 - Task 9</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 9</h1>
+	<div class="section">
+		<h2>Дано покази температур (довільна кількість). Розробити функцію, яка дозволить підрахувати кількість від’ємних
+			показів температури.
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+			function getCountNegativeTemperatures(...temperatures) {
+				let countNegativeTemperatures = 0;
+
+				for (let temperature = 0; temperature < temperatures.length; temperature++) {
+					if (temperatures[temperature] < 0) {
+						countNegativeTemperatures++
+					}
+				}
+				return countNegativeTemperatures
+			}
+
+			let res = getCountNegativeTemperatures(1, -2, 3, -6, 12, -4);
+
+			document.write(`
+				<p>Кількість від’ємних показів температури ${res}</p>`)
+
+		</script>
+
+	</div>
+</body>
+
+</html>
