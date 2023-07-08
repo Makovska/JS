@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 8 - Task 4</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 4</h1>
+	<div class="section">
+		<h2>Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які :
+			<ul>
+				<li>починаються на букву «А»;</li>
+				<li>перша і остання літери співпадають;</li>
+				<li>складаються з більше ніш 5 символів.</li>
+			</ul>
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+			let autoNumbers = ['AI3639BX', 'CE6595AA', 'AI4684PH', 'BT1116AP', 'AA9999TA', 'HOTPEPRS', '1A23000', '7K11974', '4S64641', 'EBG542'];
+
+			function getCountAutoFromKyiv(autoNums) {
+				let countAutoFromKyiv = 0;
+				for (let num = 0; num < autoNums.length; num++) {
+					if (autoNums[num][0].toUpperCase() == 'A') {
+						countAutoFromKyiv++
+					}
+				}
+				return countAutoFromKyiv
+			}
+
+			function getCountAutoFirstEqualsLast(autoNums) {
+				let countAutoFirstEqualsLast = 0;
+				for (let num = 0; num < autoNums.length; num++) {
+					if (autoNums[num][0] == autoNums[num][autoNums[num].length - 1]) {
+						countAutoFirstEqualsLast++
+					}
+				}
+				return countAutoFirstEqualsLast
+			}
+
+			function getCountNumsOver5Symbols(autoNums) {
+				let countNumsOver5Symbols = 0;
+				for (let num = 0; num < autoNums.length; num++) {
+					if (autoNums[num].length > 5) {
+						countNumsOver5Symbols++
+					}
+				}
+				return countNumsOver5Symbols
+			}
+
+			document.write(`
+			<p>Номери ${autoNumbers}</p>
+			<p>Кількість номерів, які починаються на букву «А» ${getCountAutoFromKyiv(autoNumbers)}</p>
+			<p>Кількість номерів, у яких перша і остання літери співпадають ${getCountAutoFirstEqualsLast(autoNumbers)}</p>
+			<p>Кількість номерів, які складаються з більше ніш 5 символів ${getCountNumsOver5Symbols(autoNumbers)}</p>
+			`)
+
+		</script>
+
+	</div>
+</body>
+
+</html>
