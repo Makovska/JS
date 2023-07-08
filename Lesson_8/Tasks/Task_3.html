@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 8 - Task 3</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 3</h1>
+	<div class="section">
+		<h2>Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я «Іван».
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+			let studentsName = ['Іван', 'Петро', 'Катерина', 'Марія', 'Ксенія', 'Іван', 'Богдан', 'Катерина', 'Максим', 'Іван'];
+
+			function getCountIvan(names) {
+				let countIvan = 0;
+				for (let name = 0; name < names.length; name++) {
+					if (names[name] == 'Іван') {
+						countIvan++
+					}
+				}
+				return countIvan
+			}
+
+			document.write(`
+			<p>Іванів ${getCountIvan(studentsName)}</p>
+			`)
+
+		</script>
+
+	</div>
+</body>
+
+</html>

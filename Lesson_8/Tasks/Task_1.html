@@ -23,10 +23,10 @@
 		<h2>Відповідь</h2>
 		<script>
 			let K = 1 + Math.floor(Math.random() * 3),
-				StudentScores = [];
+				studentScores = [];
 
 			for (let index = 0; index < K; index++) {
-				StudentScores.push(2 + Math.floor(Math.random() * (5 - 2 + 1)));
+				studentScores.push(2 + Math.floor(Math.random() * (5 - 2 + 1)));
 			}
 
 			function getAverageScore(scores) {
@@ -63,9 +63,9 @@
 			}
 
 			document.write(`
-			<p>Оцінки ${StudentScores}</p>
-			<p>Cередній бал ${getAverageScore(StudentScores).toFixed(1)}</p>
-			<p>Категорія - ${getRank(StudentScores)}</p>`)
+			<p>Оцінки ${studentScores}</p>
+			<p>Cередній бал ${getAverageScore(studentScores).toFixed(1)}</p>
+			<p>Категорія - ${getRank(studentScores)}</p>`)
 
 		</script>
 
