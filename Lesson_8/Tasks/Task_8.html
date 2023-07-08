@@ -26,21 +26,29 @@
 				return min + Math.floor(Math.random() * (max - min + 1))
 			}
 
-			let wonSums = [],
-				wonSumsLength = getRandomNum(10, 50);
+			function getWonSumsArray(minWon, maxWon) {
+				let wonSums = [],
+					wonSumsLength = getRandomNum(10, 50);
 
-			for (let i = 0; i < wonSumsLength; i++) {
-				wonSums.push(getRandomNum(-500, 500))
+				for (let i = 0; i < wonSumsLength; i++) {
+					wonSums.push(getRandomNum(minWon, maxWon))
+				}
+				return wonSums
 			}
 
-			let userWons = 0,
-				userChoice = parseInt(prompt(`Оберіть номер елемента від 1 до ${wonSumsLength}`));
-			do {
-				userWons += wonSums[userChoice - 1];
-				userChoice = parseInt(prompt(`Ваш сумарний виграш ${userWons}. Якщо бажаєте спробувати ще, оберіть номер елемента від 1 до ${wonSumsLength}`));
-			} while (userChoice);
+			let wonSums = getWonSumsArray(-500, 500);
 
-			document.write(`<p>Ваш сумарний виграш ${userWons}</p>`)
+			function getWons(wonSums) {
+				let userWons = 0,
+					userChoice = parseInt(prompt(`Оберіть номер елемента від 1 до ${wonSums.length}`));
+				do {
+					userWons += wonSums[userChoice - 1];
+					userChoice = parseInt(prompt(`Ваш сумарний виграш ${userWons}. Якщо бажаєте спробувати ще, оберіть номер елемента від 1 до ${wonSums.length}`));
+				} while (userChoice);
+				return userWons
+			}
+
+			document.write(`<p>Ваш сумарний виграш ${getWons(wonSums)}</p>`)
 
 		</script>
 
