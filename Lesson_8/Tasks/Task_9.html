@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 8 - Task 9</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 9</h1>
+	<div class="section">
+		<h2>Морський бій. Користувач вводить кількість клітинок одновимірного масиву та кількість одиночних кораблів.
+			Комп’ютер довільно розміщує ці одиночні кораблі у масиві по один у клітинці (якщо у клітинці 0, то клітинка
+			пуста,
+			якщо 1 – то це означає, що там є корабель. Користувач вводить номер клітинки, куди стріляє. Гра продовжується
+			до тих пір,
+			поки не будуть потоплені усі кораблі.
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+			function getRandomNum(min, max) {
+				return min + Math.floor(Math.random() * (max - min + 1))
+			}
+
+			let countCells = parseInt(prompt('Введіть кількість клітинок')),
+				countShips = parseInt(prompt(`Введіть кількість кораблів до ${countCells}`));
+
+			function getField(cells, ships) {
+				let field = [];
+				for (let i = 0; i < cells; i++) {
+					field.push(0)
+				}
+				for (let i = 0; i < ships;) {
+					let randomCell = getRandomNum(0, cells);
+					if (field[randomCell] === 0) {
+						field[randomCell] = 1;
+						i++
+					}
+				}
+				return field
+			}
+
+			function playShootShips(field, ships) {
+				do {
+					let shootShips = parseInt(prompt(`Введіть номер клітинки до ${field.length}`));
+					if (field[shootShips - 1] === 1) {
+						alert('Влучили!');
+						field[shootShips - 1] = 0;
+						ships--
+					} else {
+						alert('Не влучили!');
+					}
+				} while (ships > 0);
+				return
+			}
+
+			let fieldPlay = getField(countCells, countShips);
+			document.write(`<p>Ігрове поле до ігри ${fieldPlay}</p>`)
+
+			playShootShips(fieldPlay, countShips)
+			document.write(`<p>Ігрове поле після ігри ${fieldPlay}</p>`)
+
+		</script>
+
+	</div>
+</body>
+
+</html>
