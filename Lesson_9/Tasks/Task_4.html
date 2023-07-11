@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 9 - Task 4</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 4</h1>
+	<div class="section">
+		<h2>Дано масив елементів. Вивести на екран елементи, що більші за 100.
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+			let elementsUserEntered = [100, 30, 25, 125, 369, 21, 589, 357]
+
+			function getElementsOver100(elements) {
+				let arrayElementsOver100 = [];
+				for (const element of elements) {
+					if (element > 100) {
+						arrayElementsOver100.push(element)
+					}
+				}
+				return arrayElementsOver100
+			}
+
+			document.write(`<p>${getElementsOver100(elementsUserEntered)}</p>`)
+		</script>
+
+	</div>
+</body>
+
+</html>
