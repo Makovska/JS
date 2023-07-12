@@ -21,18 +21,14 @@
 		<script>
 			let usersName = ['Іван', 'Петро', 'Катерина', 'Марія', 'Ксенія', 'Іван', 'Богдан', 'Катерина', 'Максим', 'Іван'];
 
-			// function getArrayFromNameFirstLetter(names) {
-			// 	let arrayFromNameFirstLetter = [];
-			// 	for (const name of names) {
-			// 		arrayFromNameFirstLetter.push(name[0])
-			// 	}
-			// 	return arrayFromNameFirstLetter
-			// }
-			// document.write(`<p>${getArrayFromNameFirstLetter(usersName)}</p>`)
-
-			let arrayFromNameFirstLetter = [];
-			usersName.forEach(element => { arrayFromNameFirstLetter.push(element[0]) });
-			document.write(`<p>${arrayFromNameFirstLetter}</p>`)
+			function getArrayFromNameFirstLetter(names) {
+				let arrayFromNameFirstLetter = [];
+				for (const name of names) {
+					arrayFromNameFirstLetter.push(name[0])
+				}
+				return arrayFromNameFirstLetter
+			}
+			document.write(`<p>${getArrayFromNameFirstLetter(usersName)}</p>`)
 
 		</script>
 
