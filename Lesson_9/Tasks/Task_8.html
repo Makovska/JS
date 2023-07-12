@@ -21,24 +21,16 @@
 		<script>
 			let autoNumbers = ['AI3639BX', 'CE6595AA', 'AI4684PH', 'BT1116AP', 'AA9999TA', 'HOTPEPRS', '1A23000', '7K11974', '4S64641', 'EBG542'];
 
-			// function getArrayNumbersStartA(numbers) {
-			// 	let arrayNumbersStartA = [];
-			// 	for (const number of numbers) {
-			// 		if (number[0] == 'A') {
-			// 			arrayNumbersStartA.push(number)
-			// 		}
-			// 	}
-			// 	return arrayNumbersStartA
-			// }
-			// document.write(`<p>${getArrayNumbersStartA(autoNumbers)}</p>`)
-
-			let arrayNumbersStartA = [];
-			autoNumbers.forEach(element => {
-				if (element[0] == 'A') {
-					arrayNumbersStartA.push(element)
+			function getArrayNumbersStartA(numbers) {
+				let arrayNumbersStartA = [];
+				for (const number of numbers) {
+					if (number[0] == 'A') {
+						arrayNumbersStartA.push(number)
+					}
 				}
-			});
-			document.write(`<p>${arrayNumbersStartA}</p>`)
+				return arrayNumbersStartA
+			}
+			document.write(`<p>${getArrayNumbersStartA(autoNumbers)}</p>`)
 
 		</script>
 
