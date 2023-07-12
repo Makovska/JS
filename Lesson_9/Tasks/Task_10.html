@@ -32,8 +32,8 @@
 			// }
 			// document.write(`<p>${getArrayWithTax(prices)}</p>`)
 
-			let arrayWithTax = [];
-			prices.forEach(element => { arrayWithTax.push(element * tax) });
+			let arrayWithTax = [...prices];
+			arrayWithTax.forEach((el, i, arr) => { arr[i] *= tax });
 			document.write(`<p>${arrayWithTax}</p>`)
 
 		</script>
