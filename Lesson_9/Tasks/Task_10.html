@@ -21,17 +21,23 @@
 		<h2>Відповідь</h2>
 		<script>
 			let prices = [1000, 300, 250, 1250, 3690, 210, 5890, 3570];
-			const tax = 20;
+			const tax = 20 / 100;
 
-			function getArrayWithTax(prices) {
-				let arrayWithTax = [];
-				for (const price of prices) {
-					arrayWithTax.push(price * tax / 100)
-				}
-				return arrayWithTax
-			}
+			// function getArrayWithTax(prices) {
+			// 	let arrayWithTax = [];
+			// 	for (const price of prices) {
+			// 		arrayWithTax.push(price * tax / 100)
+			// 	}
+			// 	return arrayWithTax
+			// }
+			// document.write(`<p>${getArrayWithTax(prices)}</p>`)
 
-			document.write(`<p>${getArrayWithTax(prices)}</p>`)
+			let arrayWithTax = [];
+			prices.forEach(element => {
+				arrayWithTax.push(element * tax)
+			});
+			document.write(`<p>${arrayWithTax}</p>`)
+
 		</script>
 
 	</div>

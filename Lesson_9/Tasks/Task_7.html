@@ -21,17 +21,23 @@
 		<script>
 			let prices = [1000, 300, 250, 1250, 3690, 210, 5890, 3570];
 			const discount = 30;
+			let calcPriceReduce = (100 - discount) / 100
 
-			function getArrayWithDiscountedPrices(prices) {
-				for (let i = 0; i < prices.length; i++) {
-					if (prices[i] > 1000) {
-						prices[i] *= (100 - discount) / 100
-					}
-				}
-				return prices
-			}
+			// function getArrayWithDiscountedPrices(prices) {
+			// 	for (let i = 0; i < prices.length; i++) {
+			// 		if (prices[i] > 1000) {
+			// 			prices[i] *= calcPriceReduce
+			// 		}
+			// 	}
+			// 	return prices
+			// }
+			// document.write(`<p>${getArrayWithDiscountedPrices(prices)}</p>`)
 
-			document.write(`<p>${getArrayWithDiscountedPrices(prices)}</p>`)
+			prices.forEach((el, i, arr) => {
+				arr[i] = (el > 1000) ? arr[i] *= calcPriceReduce : arr[i]
+			});
+			document.write(`<p>${prices}</p>`)
+
 		</script>
 
 	</div>
