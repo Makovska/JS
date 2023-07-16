@@ -89,22 +89,18 @@
 
 				<li>Підрахувати кількість цін, що більше за 1000
 					<script>
-						let countPricesOver1000 = arrayStocksPrice.reduce((count, price) => {
-							if (price > 1000) {
-								count += 1
-							} return count
-						}, 0)
+						let countPricesOver1000 = arrayStocksPrice.reduce((count, price) =>
+							price > 1000 ? count += 1 : count,
+							0)
 						document.write(countPricesOver1000)
 					</script>
 				</li>
 
 				<li>Підрахувати суму цін, що більше за 1000
 					<script>
-						let sumPricesOver1000 = arrayStocksPrice.reduce((sum, price) => {
-							if (price > 1000) {
-								sum += price
-							} return sum
-						}, 0)
+						let sumPricesOver1000 = arrayStocksPrice.reduce((sum, price) =>
+							price > 1000 ? sum + price : sum,
+							0)
 						document.write(sumPricesOver1000)
 					</script>
 				</li>
