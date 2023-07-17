@@ -23,7 +23,61 @@
 		<h2>Відповідь</h2>
 		<script>
 
-			
+			let rows = 6,
+				cols = 6,
+				ships = 5,
+				bombs = 3;
+
+			function getRandomIndex(min, max) {
+				let randomIndex = min + Math.floor(Math.random() * (max - min + 1));
+				return randomIndex
+			}
+
+			function getEmptyField(rows, cols) {
+				let array2D = [];
+				for (let i = 0; i < rows; i++) {
+					let array = new Array(cols).fill(0)
+					array2D.push(array)
+				}
+				return array2D
+			}
+
+			function getPlayField(array, ships) {
+				for (let i = 0; i < ships;) {
+					let randomRowIndex = getRandomIndex(0, array.length - 1),
+						randomColIndex = getRandomIndex(0, array[0].length - 1);
+					if (array[randomRowIndex][randomColIndex] === 0) {
+						array[randomRowIndex][randomColIndex] = 1;
+						i++
+					}
+				}
+				return array
+			}
+
+			let emptyField = getEmptyField(rows, cols),
+				playField = getPlayField(emptyField, ships);
+
+			let countBomb = 5;
+
+			do {
+				let indexRowUserEntered = parseInt(prompt(`Введіть номер рядку від 1 до ${rows}`)),
+					indexColUserEntered = parseInt(prompt(`Введіть номер стовпця від 1 до ${cols}`));
+				countBomb--
+				if (playField[indexRowUserEntered - 1][indexColUserEntered - 1] === 1) {
+					playField[indexRowUserEntered - 1][indexColUserEntered - 1] = 0;
+					ships--;
+					alert('Влучно!')
+				} else { alert(`Не влучно! Залишилось ${countBomb} снарядів.`) }
+			} while (countBomb > 0 && ships > 0);
+
+			if (ships > 0) {
+				document.write(`<p>На жаль, Ви програли. Залишилось ${ships} кораблів.</p>`)
+				for (let row of playField) {
+					document.write(`<p>${row}</p><br>`)
+				}
+			} else {
+				document.write(`<p>Вітаємо з перемогою!</p>`)
+			}
 
 		</script>
 
