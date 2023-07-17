@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 11 - Task 2</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 2</h1>
+	<div class="section">
+		<h2>Задача 1.
+			Дано інформацію про прибуток К магазинів протягом тижня. Знайти :
+			<ol>
+				<li>загальний прибуток кожного масиву за тиждень;</li>
+				<li>загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за
+					вівторок, і т.д.);</li>
+				<li>загальний прибуток за робочі дні</li>
+				<li>загальний прибуток за вихідні дні</li>
+				<li>максимальний прибуток за середу</li>
+				<li>сформувати загальний список (одновимірний масив) зі значеннями, що більші за 200</li>
+				<li>відсортувати кожен тиждень за зростанням</li>
+				<li>відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто при
+					порівнянні рядків
+					потрібно порівнювати максимальні елементи у кожному з цих рядків</li>
+				<li>упорядкувати тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох рядків
+					треба знайти суму
+					кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло, який з елементів повинен іти
+					раніше).</li>
+			</ol>
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+
+			//-----ПЕРЕВІРТЕ, БУДЬ ЛАСКА, ОСТАННІ 5 (ТОБТО 5-9). ДЯКУЮ!
+
+			//-----Get 2D-array of profit
+			let countShops = 3,
+				countDays = 7;
+
+			function randomArray(countEl, min, max) {
+				let array = [];
+				for (let i = 0; i < countEl; i++) {
+					array.push(min + Math.floor(Math.random() * (max - min + 1)))
+				}
+				return array
+			}
+
+			function getRandomArray2D(countRow, countCol, min, max) {
+				let array2D = [];
+				for (let i = 0; i < countRow; i++) {
+					array2D.push(randomArray(countCol, min, max))
+				}
+				return array2D
+			}
+
+			let profitAllShopsPerWeek = getRandomArray2D(countShops, countDays, 100, 999)
+
+
+			for (let shop of profitAllShopsPerWeek) {
+				document.write(`<p>${shop}</p><br>`)
+			}
+
+			//-----Solution
+			//---1---загальний прибуток кожного масиву за тиждень
+			let shopProfitPerWeek = profitAllShopsPerWeek.map(
+				row => row.reduce((sum, el) => sum + el)
+			)
+			document.write(`<p>Загальний прибуток кожного магазину за тиждень = ${shopProfitPerWeek}</p>`)
+
+			//---2---загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за вівторок, і т.д.)
+			let profitPerDays = [];
+			for (let i = 0; i < countDays; i++) {
+				let profitPerDay = 0;
+				for (let j = 0; j < countShops; j++) {
+					profitPerDay += profitAllShopsPerWeek[j][i];
+				}
+				profitPerDays.push(profitPerDay)
+			}
+			document.write(`<p>Загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за вівторок, і т.д.) = ${profitPerDays}</p>`)
+
+			//---3---загальний прибуток за робочі дні
+			let indexStartWeekend = 5;
+			let totalProfitPerWorkDays = 0;
+			for (let i = 0; i < countShops; i++) {
+				for (let j = 0; j < indexStartWeekend; j++) {
+					totalProfitPerWorkDays += profitAllShopsPerWeek[i][j]
+				}
+			}
+			document.write(`<p>Загальний прибуток за робочі дні = ${totalProfitPerWorkDays}</p>`)
+
+			//---4---загальний прибуток за вихідні дні
+			let totalProfitPerWeekend = 0;
+			for (let i = 0; i < countShops; i++) {
+				for (let j = indexStartWeekend; j < countDays; j++) {
+					totalProfitPerWeekend += profitAllShopsPerWeek[i][j]
+				}
+			}
+			document.write(`<p>Загальний прибуток за вихідні дні = ${totalProfitPerWeekend}</p>`)
+
+			//---5---максимальний прибуток за середу
+			let indexOfWednesday = 2;
+			let maxPerWednesday = -Infinity
+			for (let j = 0; j < countShops; j++) {
+				maxPerWednesday = profitAllShopsPerWeek[j][indexOfWednesday] > maxPerWednesday ? profitAllShopsPerWeek[j][indexOfWednesday] : maxPerWednesday;
+			}
+			document.write(`<p>Максимальний прибуток за середу = ${maxPerWednesday}</p>`)
+
+			//---6---сформувати загальний список (одновимірний масив) зі значеннями, що більші за 200
+			let profitsOver200 = profitAllShopsPerWeek.flat().filter(el => el > 200)
+			document.write(`<p>Загальний список (одновимірний масив) зі значеннями, що більші за 200 = ${profitsOver200}</p>`)
+
+			//---7---відсортувати кожен тиждень за зростанням
+			let sortedWeek = JSON.parse(JSON.stringify(profitAllShopsPerWeek)); //Копія, аби у наступних завданнях був початковий стан массиву
+			sortedWeek.forEach(el => el.sort((el1, el2) => el1 - el2)
+			);
+			document.write(`<p>Відсортувати кожен тиждень за зростанням = </p>`)
+			for (let shop of sortedWeek) {
+				document.write(`<p>${shop}</p><br>`)
+			}
+
+			//---8---відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто при порівнянні рядків потрібно порівнювати максимальні елементи у кожному з цих рядків
+			function getMaxElement(array) {
+				let maxElement = array.reduce((max, el) => el > max ? el : max);
+				return maxElement
+			}
+			profitAllShopsPerWeek.sort((arr1, arr2) => getMaxElement(arr2) - getMaxElement(arr1))
+			document.write(`<p>Відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто при порівнянні рядків потрібно порівнювати максимальні елементи у кожному з цих рядків = </p>`)
+			for (let shop of profitAllShopsPerWeek) {
+				document.write(`<p>${shop}  maxElement = ${getMaxElement(shop)}</p><br>`)
+			}
+
+			//---9---упорядкувати тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох рядків треба знайти суму кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло, який з елементів повинен іти раніше)
+			function getSumOfElement(array) {
+				let sumOfElement = array.reduce((sum, el) => sum + el)
+				return sumOfElement
+			}
+			profitAllShopsPerWeek.sort((arr1, arr2) => getSumOfElement(arr2) - getSumOfElement(arr1))
+			document.write(`<p>Упорядкувати тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох рядків треба знайти суму кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло, який з елементів повинен іти раніше) = </p>`)
+			for (let shop of profitAllShopsPerWeek) {
+				document.write(`<p>${shop}  sum = ${getSumOfElement(shop)}</p><br>`)
+			}
+
+		</script>
+
+	</div>
+</body>
+
+</html>
