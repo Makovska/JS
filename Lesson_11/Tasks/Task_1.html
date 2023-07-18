@@ -94,12 +94,12 @@
 			)
 			document.write(`<p>Cумa парних рядків = ${sumEvenRows}</p>`)
 
-			let sumOddRows = getSumFromArray2D(
+			let sumOddCols = getSumFromArray2D(
 				array2D,
-				1, rowLength, 2,
-				0, colLength, 1
+				0, rowLength, 1,
+				1, colLength, 2
 			)
-			document.write(`<p>Cумa непарних рядків = ${sumOddRows}</p>`)
+			document.write(`<p>Cумa непарних стовпців = ${sumOddCols}</p>`)
 
 			let sumBrokenBrains = getSumFromArray2D(
 				array2D,
