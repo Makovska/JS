@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 12 - Task 4</title>
+</head>
+
+<body>
+	<h1 class="section">Задачi 4</h1>
+	<div class="section">
+		<h2>Задача 1.
+			Дано масив 30 випадкових цілих чисел. Для розглянутих методів сортування спробувати вивести етапи сортування
+			шляхом виведення відповідних
+			таблиць за зразком.
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+
+			//-----Створюємо масив 30 випадкових цілих чисел
+			function getRandomNum(min, max) {
+				return min + Math.floor(Math.random() * (max - min + 1))
+			}
+
+			function getNumArray(countElements, min, max) {
+				let array = [];
+				for (let i = 0; i < countElements; i++) {
+					array.push(getRandomNum(min, max))
+				}
+				return array
+			}
+
+			let array = getNumArray(5, 0, 10);
+			document.write(`<p>${array}</p><hr>`)
+
+			function swap(array, i, j) {
+				let tmp = array[i];
+				array[i] = array[j]
+				array[j] = tmp
+			}
+
+			//сортування бульбашкою.
+			let arrayForBubble = [...array],
+				changed,
+				countChangesBubbleSort = 0,
+				countPassesBubbleSort = 0;
+			do {
+				changed = false;
+				for (let i = 1; i < arrayForBubble.length; i++) {
+					if (arrayForBubble[i] < arrayForBubble[i - 1]) {
+						swap(arrayForBubble, i, i - 1);
+						changed = true;
+						countChangesBubbleSort++;
+						document.write(`<p>${arrayForBubble}</p>`)
+					}
+				}
+				countPassesBubbleSort++
+			} while (changed);
+			document.write(`<p>Кількість обмінів під час сортування бульбашкою ${countChangesBubbleSort}</p>`)
+			document.write(`<p>Кількість проходів по масиву ${countPassesBubbleSort}</p><hr>`)
+
+			//сортування змішуванням.
+			let arrayForCocktail = [...array],
+				indexLeft = 0,
+				indexRight = array.length - 1,
+				countChangesCocktailSort = 0,
+				countPassesCocktailSort = 0;
+			while (indexLeft < indexRight) {
+				for (let i = indexLeft; i < indexRight; i++) {
+					if (arrayForCocktail[i] > arrayForCocktail[i + 1]) {
+						swap(arrayForCocktail, i, i + 1);
+						countChangesCocktailSort++;
+						document.write(`<p>${arrayForCocktail}</p>`)
+					};
+				}
+				indexRight--;
+				countPassesCocktailSort++;
+				for (let i = indexRight; i > indexLeft; i--) {
+					if (arrayForCocktail[i] < arrayForCocktail[i - 1]) {
+						swap(arrayForCocktail, i, i - 1);
+						countChangesCocktailSort++;
+						document.write(`<p>${arrayForCocktail}</p>`)
+					}
+				}
+				indexLeft++;
+				countPassesCocktailSort++;
+			}
+			document.write(`<p>Кількість обмінів під час сортування змішуванням ${countChangesCocktailSort}</p>`)
+			document.write(`<p>Кількість проходів по масиву ${countPassesCocktailSort}</p><hr>`)
+
+			//сортування включеннями.
+			let arrayForInsertion = [...array],
+				countChangesInsertionSort = 0,
+				countPassesInsertionSort = 0;
+			for (let k = 1; k < arrayForInsertion.length; k++) {
+				let currentElement = arrayForInsertion[k],
+					i = k - 1;
+				while (i >= 0 && arrayForInsertion[i] > currentElement) {
+					arrayForInsertion[i + 1] = arrayForInsertion[i];
+					i--;
+					countChangesInsertionSort++;
+					document.write(`<p>${arrayForInsertion}</p>`)
+				}
+				arrayForInsertion[i + 1] = currentElement;
+				document.write(`<p>${arrayForInsertion}</p>`);
+				countChangesInsertionSort++;
+				countPassesInsertionSort++
+			}
+			document.write(`<p>Кількість обмінів під час сортування включеннями ${countChangesInsertionSort}</p>`)
+			document.write(`<p>Кількість проходів по масиву ${countPassesCocktailSort}</p><hr>`)
+
+		</script>
+
+	</div>
+</body>
+
+</html>
