@@ -30,7 +30,6 @@
 
 			//-----чи є у масиві ім’я «Olga» і під яким індексом
 			function findName(array, name) {
-				array.sort();
 				let start = 0,
 					end = array.length - 1;
 				while (start <= end) {
@@ -48,7 +47,9 @@
 				return -1
 			}
 
+			usersName.sort();  //сортування масиву за абеткою
 			let resultOfFindName = findName(usersName, 'Ольга')
+
 			document.write(`<p>Відсортований за абеткою масив: ${usersName}</p>`)
 			if (resultOfFindName >= 0) {
 				document.write(`<p>Ім'я "Ольга" є у масиві за індексом ${resultOfFindName}</p><hr>`)
@@ -58,7 +59,6 @@
 
 			//-----чи є у масиві ім’я довжиною 5 символів і під яким індексом
 			function findNameLength(array, length) {
-				array.sort((el1, el2) => el1.length - el2.length);
 				let start = 0,
 					end = array.length - 1;
 				while (start <= end) {
@@ -76,7 +76,9 @@
 				return -1
 			}
 
+			usersName.sort((el1, el2) => el1.length - el2.length);  //сортування масиву за довженою імені
 			let resultOfFindNameFrom5Symbols = findNameLength(usersName, 5)
+
 			document.write(`<p>Відсортований за довженою імені масив: ${usersName}</p>`)
 			if (resultOfFindNameFrom5Symbols >= 0) {
 				document.write(`<p>Ім'я довжиною 5 символів є у масиві за індексом ${resultOfFindNameFrom5Symbols}</p><hr>`)

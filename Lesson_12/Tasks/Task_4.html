@@ -57,7 +57,7 @@
 						swap(arrayForBubble, i, i - 1);
 						changed = true;
 						countChangesBubbleSort++;
-						document.write(`<p>${arrayForBubble}</p>`)
+						document.write(`<p>[ ${arrayForBubble} ]</p>`)
 					}
 				}
 				countPassesBubbleSort++
@@ -76,7 +76,7 @@
 					if (arrayForCocktail[i] > arrayForCocktail[i + 1]) {
 						swap(arrayForCocktail, i, i + 1);
 						countChangesCocktailSort++;
-						document.write(`<p>${arrayForCocktail}</p>`)
+						document.write(`<p>[ ${arrayForCocktail} ]</p>`)
 					};
 				}
 				indexRight--;
@@ -85,7 +85,7 @@
 					if (arrayForCocktail[i] < arrayForCocktail[i - 1]) {
 						swap(arrayForCocktail, i, i - 1);
 						countChangesCocktailSort++;
-						document.write(`<p>${arrayForCocktail}</p>`)
+						document.write(`<p>[ ${arrayForCocktail} ]</p>`)
 					}
 				}
 				indexLeft++;
@@ -105,10 +105,10 @@
 					arrayForInsertion[i + 1] = arrayForInsertion[i];
 					i--;
 					countChangesInsertionSort++;
-					document.write(`<p>${arrayForInsertion}</p>`)
+					document.write(`<p>[ ${arrayForInsertion} ]</p>`)
 				}
 				arrayForInsertion[i + 1] = currentElement;
-				document.write(`<p>${arrayForInsertion}</p>`);
+				document.write(`<p>[ ${arrayForInsertion} ]</p>`);
 				countChangesInsertionSort++;
 				countPassesInsertionSort++
 			}
