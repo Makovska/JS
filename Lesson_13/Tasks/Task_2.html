@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 13 - Task 2</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 2</h1>
+	<div class="section">
+		<h2>
+			Реалізувати бінарний пошук (розглядали на попередніх уроках) з використанням рекурсивного алгоритму.
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+
+			let usersName = ['Іван', 'Петро', 'Катерина', 'Марія', 'Ксенія', 'Богдан', 'Ольга', 'Катерина', 'Максим', 'Іван'];
+			document.write(`<p>Дано масив: ${usersName}</p><hr>`)
+			usersName.sort();  //сортування масиву за абеткою
+			document.write(`<p>Відсортований за абеткою масив: ${usersName}</p><hr>`)
+
+			//-----чи є у масиві ім’я «Olga» без пошуку індексу
+			function findName(array, name) {
+				let middle = Math.floor((array.length - 1) / 2);
+
+				if (array[middle] == name) return true
+				else if (array[middle] < name) return findName(array.filter((el, ind) => ind > middle), name)
+				else if (array[middle] > name) return findName(array.filter((el, ind) => ind < middle), name)
+				else return false
+			}
+
+			let resultOfFindName = findName(usersName, 'Ольга')
+			if (resultOfFindName) {
+				document.write(`<p>Ім'я "Ольга" є у масиві.</p><hr>`)
+			} else {
+				document.write(`<p>Ім'я "Ольга" відсутнє у масиві.</p><hr>`)
+			}
+
+			//-----чи є у масиві ім’я «Olga» і під яким індексом
+			function findNameIndex(array, name, start = 0, end = array.length - 1) {
+
+				let middle = Math.floor((start + end) / 2);
+
+				if (start <= end) {
+					if (array[middle] == name) return middle
+					else if (array[middle] < name) return findNameIndex(array, name, middle + 1, end)
+					else if (array[middle] > name) return findNameIndex(array, name, start, middle - 1)
+				} else return -1
+			}
+
+			let resultOfFindNameIndex = findNameIndex(usersName, 'Ольга')
+			if (resultOfFindNameIndex >= 0) {
+				document.write(`<p>Ім'я "Ольга" є у масиві за індексом ${resultOfFindNameIndex}</p><hr>`)
+			} else {
+				document.write(`<p>Ім'я "Ольга" відсутнє у масиві.</p><hr>`)
+			}
+
+		</script>
+
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 13 - Task 1</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 1</h1>
+	<div class="section">
+		<h2>
+			Визначити x10 за формулою. Розв’язати з використанням рекурсивних і нерекурсивних алгоритмів.
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+
+			function getNumberX_Recursion(i) {
+				return i === 0 ? 1 : getNumberX_Recursion(i - 1) + 2 * i
+			}
+			document.write(`<p>Рекурсивно x10 = ${getNumberX_Recursion(10)}</p>`)
+
+			function getNumberX_Cycle(i) {
+				let x = 1;
+				for (let count = 1; count <= i; count++) {
+					x += 2 * count
+				}
+				return x
+			}
+			document.write(`<p>Нерекурсивно x10 = ${getNumberX_Cycle(10)}</p>`)
+
+		</script>
+
+	</div>
+</body>
+
+</html>
