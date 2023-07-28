@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 13 - Task 5</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 5</h1>
+	<div class="section">
+		<h2>
+			Тренажер додавання. Кожні 10 секунд користувачу задають випадковий приклад з додавання двох цифр і робиться
+			перевірка.
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+
+			function getRandomNum(min, max) {
+				return min + Math.floor(Math.random() * (max - min + 1))
+			}
+
+			//------Варіант 1-------
+			function mathTrainer(min, max) {
+				setTimeout(() => {
+					let num1 = getRandomNum(min, max),
+						num2 = getRandomNum(min, max),
+						sum = num1 + num2,
+						userAnswer = parseInt(prompt(`${num1} + ${num2} =`));
+					if (sum === userAnswer) {
+						alert('Відмінно!')
+					} else {
+						alert(`Не вірно! ${num1} + ${num2} = ${sum}`)
+					}
+					mathTrainer(min, max)
+				},
+					10000)
+			}
+			mathTrainer(0, 10)
+
+			//------Варіант 2-------
+			// function mathTrainer(min, max) {
+			// 	let num1 = getRandomNum(min, max),
+			// 		num2 = getRandomNum(min, max),
+			// 		sum = num1 + num2,
+			// 		userAnswer = parseInt(prompt(`${num1} + ${num2} =`));
+			// 	if (sum === userAnswer) {
+			// 		alert('Відмінно!')
+			// 	} else {
+			// 		alert(`Не вірно! ${num1} + ${num2} = ${sum}`)
+			// 	}
+			// }
+
+			// setInterval(mathTrainer, 10000, 0, 10)
+
+		</script>
+
+	</div>
+</body>
+
+</html>

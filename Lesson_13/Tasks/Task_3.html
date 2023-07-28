@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 13 - Task 3</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 3</h1>
+	<div class="section">
+		<h2>
+			З використанням замикань розробити ітератор, тобто функцію, що буде поступово за окремими викликами видавати по
+			одне значення від заданого мінімального до заданого максимального. Якщо значення досягне максимального, то
+			наступним буде
+			мінімальне значення. З використанням цієї функції реалізувати перебір номерів місяців.
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+
+			function getCount(min, max) {
+				let count = max;
+				function countIterator() {
+					return count === max ? count = min : ++count
+				}
+				return countIterator
+			}
+
+			let countMonth = getCount(1, 12)
+			for (let i = 0; i < 30; i++) {
+				document.write(`<p>${countMonth()}</p>`)
+			}
+
+		</script>
+
+	</div>
+</body>
+
+</html>

@@ -26,7 +26,7 @@
 			usersName.sort();  //сортування масиву за абеткою
 			document.write(`<p>Відсортований за абеткою масив: ${usersName}</p><hr>`)
 
-			//-----чи є у масиві ім’я «Olga» без пошуку індексу
+			//-----чи є у масиві ім’я «Olga» БЕЗ ПОШУКУ ІНДЕКСУ
 			function findName(array, name) {
 				let middle = Math.floor((array.length - 1) / 2);
 
@@ -43,7 +43,7 @@
 				document.write(`<p>Ім'я "Ольга" відсутнє у масиві.</p><hr>`)
 			}
 
-			//-----чи є у масиві ім’я «Olga» і під яким індексом
+			//-----чи є у масиві ім’я «Olga» І ПІД ЯКИМ ІНДЕКСОМ
 			function findNameIndex(array, name, start = 0, end = array.length - 1) {
 
 				let middle = Math.floor((start + end) / 2);
