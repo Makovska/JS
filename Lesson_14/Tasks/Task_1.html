@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 14 - Task 1</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 1</h1>
+	<div class="section">
+		<h2>
+			Описати масив об’єктів – сайтів розроблених компанією з такими властивостями:
+			<ul>
+				<li>назва компанії на час розробки (назву періодично змінюють)</li>
+				<li>власник компанії</li>
+				<li>споснсори (масив спонсорів)
+					<ul>
+						<li>прізвище спонсора</li>
+						<li>ім’я спонсора</li>
+						<li>сума вкладень спонсора</li>
+					</ul>
+				</li>
+				<li>рік випуску</li>
+				<li>вартість сайту</li>
+			</ul>
+			Знайти:
+			<ol>
+				<li>загальну вартість усіх сайтів</li>
+				<li>кількість сайтів, що було зроблено між 2000 та 2009 рр.</li>
+				<li>кількість сайтів, де сума спонсорських вкладень була більшою за 100000</li>
+				<li>створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив)</li>
+				<li>знайти рік, коли прибуток був найбільшим</li>
+				<li>упорядкувати список за спаданням прибутку</li>
+				<li>Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000
+				</li>
+			</ol>
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+
+			let listSites = [
+				{
+					companyName: 'junior LTD',
+					companyOwner: 'Makovska',
+					sponsors: [
+						{
+							sponsorSurname: 'Ivanenko',
+							sponsorFirstname: 'Ivan',
+							sponsorInvestments: 10000,
+						},
+						{
+							sponsorSurname: 'Petrenko',
+							sponsorFirstname: 'Petro',
+							sponsorInvestments: 1500,
+						},
+					],
+					yearOfProduction: 1999,
+					siteCost: 2500,
+				},
+				{
+					companyName: 'junior LTD',
+					companyOwner: 'Makovska',
+					sponsors: [
+						{
+							sponsorSurname: 'Ivanenko',
+							sponsorFirstname: 'Ivan',
+							sponsorInvestments: 5000,
+						},
+					],
+					yearOfProduction: 2003,
+					siteCost: 5500,
+				},
+				{
+					companyName: 'junior LTD',
+					companyOwner: 'Makovska',
+					sponsors: [
+						{
+							sponsorSurname: 'Vasylenko',
+							sponsorFirstname: 'Vasylyna',
+							sponsorInvestments: 15000,
+						},
+						{
+							sponsorSurname: 'Ivanenko',
+							sponsorFirstname: 'Kateryna',
+							sponsorInvestments: 4000,
+						},
+						{
+							sponsorSurname: 'Petrenko',
+							sponsorFirstname: 'Petro',
+							sponsorInvestments: 50000,
+						},
+					],
+					yearOfProduction: 2005,
+					siteCost: 50000,
+				},
+				{
+					companyName: 'middle LTD',
+					companyOwner: 'Makovska',
+					sponsors: [
+						{
+							sponsorSurname: 'Smith',
+							sponsorFirstname: 'Jhon',
+							sponsorInvestments: 1500,
+						},
+						{
+							sponsorSurname: 'Gates',
+							sponsorFirstname: 'Bill',
+							sponsorInvestments: 3000,
+						},
+					],
+					yearOfProduction: 2008,
+					siteCost: 6000,
+				},
+				{
+					companyName: 'middle LTD',
+					companyOwner: 'Makovska',
+					sponsors: [
+						{
+							sponsorSurname: 'Smith',
+							sponsorFirstname: 'Jhon',
+							sponsorInvestments: 150000,
+						},
+						{
+							sponsorSurname: 'Ivanenko',
+							sponsorFirstname: 'Kateryna',
+							sponsorInvestments: 300000,
+						},
+					],
+					yearOfProduction: 2011,
+					siteCost: 570000,
+				},
+				{
+					companyName: 'senior LTD',
+					companyOwner: 'Makovska',
+					sponsors: [
+						{
+							sponsorSurname: 'Ivanenko',
+							sponsorFirstname: 'Kateryna',
+							sponsorInvestments: 180000,
+						},
+					],
+					yearOfProduction: 2015,
+					siteCost: 370000,
+				},
+				{
+					companyName: 'senior LTD',
+					companyOwner: 'Makovska',
+					sponsors: [
+						{
+							sponsorSurname: 'Ivanenko',
+							sponsorFirstname: 'Ivan',
+							sponsorInvestments: 250000,
+						},
+						{
+							sponsorSurname: 'Ivanenko',
+							sponsorFirstname: 'Kateryna',
+							sponsorInvestments: 280000,
+						},
+						{
+							sponsorSurname: 'Petrenko',
+							sponsorFirstname: 'Petro',
+							sponsorInvestments: 150000,
+						},
+					],
+					yearOfProduction: 2019,
+					siteCost: 670000,
+				},
+				{
+					companyName: 'senior LTD',
+					companyOwner: 'Makovska',
+					sponsors: [
+						{
+							sponsorSurname: 'Ivanenko',
+							sponsorFirstname: 'Ivan',
+							sponsorInvestments: 200000,
+						},
+						{
+							sponsorSurname: 'Ivanenko',
+							sponsorFirstname: 'Kateryna',
+							sponsorInvestments: 200000,
+						},
+					],
+					yearOfProduction: 2023,
+					siteCost: 630000,
+				},
+			];
+
+			document.write(`<ol>`)
+				
+			//------загальну вартість усіх сайтів
+			let totalCostOfSites = listSites.reduce((sum, site) =>
+				sum + site.siteCost,
+				0
+			)
+			document.write(`<li>Загальна вартість усіх сайтів - ${totalCostOfSites} грн.</li>`)
+
+			//------кількість сайтів, що було зроблено між 2000 та 2009 рр.
+			let countSitesFrom2000To2009 = listSites.reduce((count, site) =>
+				site.yearOfProduction > 2000 && site.yearOfProduction < 2009 ? count + 1 : count,
+				0
+			)
+			document.write(`<li>Кількість сайтів, що було зроблено між 2000 та 2009 рр. - ${countSitesFrom2000To2009}.</li>`)
+
+			//------кількість сайтів, де сума спонсорських вкладень була більшою за 100000
+			let countSitesInvestOver100000 = 0;
+			for (const site of listSites) {
+				let siteInvest = 0;
+				for (const sponsor of site.sponsors) {
+					siteInvest += sponsor.sponsorInvestments
+				}
+				if (siteInvest > 100000) countSitesInvestOver100000++
+			}
+			document.write(`<li>Кількість сайтів, де сума спонсорських вкладень була більшою за 100000 - ${countSitesInvestOver100000}.</li>`)
+
+			//------створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив)
+			let listOfSponsors = [];
+			for (const site of listSites) {
+				for (const sponsor of site.sponsors) {
+					let sponsorName = `${sponsor.sponsorSurname} ${sponsor.sponsorFirstname}`;
+					if (!listOfSponsors.includes(sponsorName)) listOfSponsors.push(sponsorName)
+				}
+			}
+			document.write(`<li>Загальний список усіх спонсорів:<br>${listOfSponsors}</li>`)
+
+			//------знайти рік, коли прибуток був найбільшим
+			let yearOfMaxProfit = 0,
+				maxProfit = -Infinity;
+			for (const site of listSites) {
+				if (site.siteCost > maxProfit) {
+					maxProfit = site.siteCost;
+					yearOfMaxProfit = site.yearOfProduction
+				}
+			}
+			document.write(`<li>Pік, коли прибуток був найбільшим - ${yearOfMaxProfit}.</li>`)
+
+			//------упорядкувати список за спаданням прибутку
+			let copyListSites = JSON.parse(JSON.stringify(listSites));
+			copyListSites.sort((site1, site2) => site2.siteCost - site1.siteCost)
+
+			//------Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000
+			let listSitesCostLess10000 = [],
+				listSitesCostOver10000 = [];
+			for (const site of listSites) {
+				if (site.siteCost < 10000) listSitesCostLess10000.push(JSON.parse(JSON.stringify(site)))
+				else listSitesCostOver10000.push(JSON.parse(JSON.stringify(site)))
+			}
+
+			document.write(`</ol>`)
+
+		</script>
+
+	</div>
+</body>
+
+</html>
