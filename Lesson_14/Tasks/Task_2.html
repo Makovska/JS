@@ -28,7 +28,7 @@
 			}
 
 			function getFutureYear(userDate, N) {
-				return userDate.year + Math.floor((userDate.month + N - 1) / 12)
+				return userDate.year + Math.floor((userDate.month - 1 + N) / 12)
 			}
 
 			let userFutureYear = getFutureYear(userDate, 50);
