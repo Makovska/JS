@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 14 - Task 1</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 1</h1>
+	<div class="section">
+		<h2>
+			Розробити функцію, у яку передають об’єкт (день, місяць, рік). Визначити, який буде рік через N місяців.
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+
+			let userDate = {
+				day: 31,
+				month: 08,
+				year: 2023,
+			}
+
+			function getFutureYear(userDate, N) {
+				return userDate.year + Math.floor((userDate.month + N - 1) / 12)
+			}
+
+			let userFutureYear = getFutureYear(userDate, 50);
+			document.write(`<p>${userFutureYear}</p>`)
+
+		</script>
+
+	</div>
+</body>
+
+</html>
