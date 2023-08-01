@@ -27,11 +27,11 @@
 				year: 2023,
 			}
 
-			function getFutureYear(userDate, N) {
-				return userDate.year + Math.floor((userDate.month - 1 + N) / 12)
+			function getFutureYear({ month, year }, N) {
+				return year + Math.floor((month - 1 + N) / 12)
 			}
 
-			let userFutureYear = getFutureYear(userDate, 50);
+			let userFutureYear = getFutureYear(userDate, 41);
 			document.write(`<p>${userFutureYear}</p>`)
 
 		</script>
