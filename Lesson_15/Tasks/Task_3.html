@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 15 - Task 3</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 3</h1>
+	<div class="section">
+		<h2>
+			Розробити клас MultChecker для перевірки таблиці множення.
+			<ol>
+				<li>Поля(властивості)
+					<ul>
+						<li>Число, яке перевіряємо (наприклад, перевірка частини таблиці множення на 7)</li>
+						<li>Кількість правильних відповідей</li>
+						<li>Кількість неправильних відповідей</li>
+					</ul>
+				</li>
+			</ol>
+			<ol>
+				<li>Методи (дії)
+					<ul>
+						<li>Генерування прикладу (метод випадковим чином визначає друге число, перше число фіксоване)</li>
+						<li>Перевірка правильності вказаної відповіді</li>
+						<li>render</li>
+					</ul>
+				</li>
+			</ol>
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+
+			class MultChecker {
+				constructor(numForCheck) {
+					this.numForCheck = numForCheck;
+					this.countCorrectAnswers = 0;
+					this.countMistakes = 0;
+				}
+				getRandomNum(min = 1, max = 9) {
+					return min + Math.floor(Math.random() * (max - min + 1))
+				}
+				generateExample(min = 1, max = 9) {
+					return min + Math.floor(Math.random() * (max - min + 1))
+				}
+				isCorrectAnswer() {
+					do {
+						let secondNum = this.generateExample(),
+							userAnswer = parseInt(prompt(`${this.numForCheck} * ${secondNum} =`));
+						if (userAnswer === this.numForCheck * secondNum) this.countCorrectAnswers++
+						else this.countMistakes++
+					} while (confirm('Хочете ще?'));
+				}
+				render() {
+					document.write(`
+					<p>Перевірка таблиці множення на ${this.numForCheck}</p>
+					<p>Кількість правильних відповідей - ${this.countCorrectAnswers}</p>
+					<p>Кількість неправильних відповідей - ${this.countMistakes}</p>`)
+				}
+			}
+
+			function getNumForCheck(min = 1, max = 9) {
+				return min + Math.floor(Math.random() * (max - min + 1))
+			}
+			let MultChecker1 = new MultChecker(getNumForCheck());
+			MultChecker1.isCorrectAnswer()
+			MultChecker1.render()
+
+		</script>
+
+	</div>
+</body>
+
+</html>

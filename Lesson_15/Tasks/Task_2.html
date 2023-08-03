@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 15 - Task 2</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 2</h1>
+	<div class="section">
+		<h2>
+			Створити об’єкт «Авто».
+			<ol>
+				<li>Поля(властивості)
+					<ul>
+						<li>Марка</li>
+						<li>Розмір бака</li>
+						<li>Кількість наявних літрів</li>
+						<li>Кількість місць</li>
+						<li>Кількість пасажирів</li>
+					</ul>
+				</li>
+			</ol>
+			<ol>
+				<li>Методи (дії)
+					<ul>
+						<li>Заправка на вказану кількість літрів</li>
+						<li>Виведення кількості пасажирів</li>
+						<li>Додавання пасажирів</li>
+						<li>Висадка пасажирів</li>
+					</ul>
+				</li>
+			</ol>
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+
+			let auto = {
+				brand: 'Skoda',
+				tankSize: 3,
+				litersAvailable: 0.8,
+				seatsNum: 5,
+				passengersNum: 2,
+				refueling: function (fuelLiters) {
+					if (this.litersAvailable + fuelLiters > this.tankSize) {
+						throw new Error('Бажана кількість літрів перевищує розмір баку')
+					} else {
+						this.litersAvailable += fuelLiters
+					}
+				},
+				toString: function () {
+					return `В авто ${this.passengersNum} пасажирів.`
+				},
+				addPassengers: function (countAddPassengers) {
+					if (this.passengersNum + countAddPassengers > this.seatsNum) {
+						throw new Error('Бажана кількість пасажирів перевищує місткість авто.')
+					} else {
+						this.passengersNum += countAddPassengers
+					}
+				},
+				removePassengers: function (countRemovePassengers) {
+					if (this.passengersNum - countRemovePassengers < 0) {
+						throw new Error('В авто менша кількість пасажирів.')
+					} else {
+						this.passengersNum -= countRemovePassengers
+					}
+				}
+			}
+
+		</script>
+
+	</div>
+</body>
+
+</html>

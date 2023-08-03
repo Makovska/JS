@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 15 - Task 1</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 1</h1>
+	<div class="section">
+		<h2>
+			Створити об’єкт «Тир». У масиві зберігаються 1, якщо у цьому квадраті є заєць і 0 в іншому випадку.
+			<ol>
+				<li>Поля(властивості)
+					<ul>
+						<li>Масив, у якому зберігається поле з зайцями</li>
+					</ul>
+				</li>
+			</ol>
+			<ol>
+				<li>Методи (дії)
+					<ul>
+						<li>Метод пострілу (задається позиція пострілу)</li>
+						<li>Виведення ігрового поля</li>
+					</ul>
+				</li>
+			</ol>
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+
+			let rifleRange = {
+				fieldGame: [0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1],
+				shot: function () {
+					return parseInt(prompt(`Оберіть № цілі від 1 до ${this.fieldGame.length}`))
+				},
+				toString: function () {
+					return `${this.fieldGame}`
+				}
+			}
+
+			rifleRange.shot()
+			document.write(`<p>${rifleRange}</p>`)
+
+		</script>
+
+	</div>
+</body>
+
+</html>
