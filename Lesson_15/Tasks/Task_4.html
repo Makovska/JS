@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 15 - Task 4</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 4</h1>
+	<div class="section">
+		<h2>
+			Розробити клас Baner.
+			<ol>
+				<li>Поля(властивості)
+					<ul>
+						<li>Масив об’єктів ( графічних зображень та посилань на сайти)</li>
+					</ul>
+				</li>
+			</ol>
+			<ol>
+				<li>Методи (дії)
+					<ul>
+						<li>Метод випадкового вибору об’єкта (графічного зображення та посилання)</li>
+						<li>Метод виведення випадкового банера</li>
+					</ul>
+				</li>
+			</ol>
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+
+			let arrayBanners = [
+				{
+					image: '../../img/slot_1.png',
+					link: 'https://en.wikipedia.org/wiki/Plum'
+				},
+				{
+					image: '../../img/slot_2.png',
+					link: 'https://en.wikipedia.org/wiki/Lemon'
+				},
+				{
+					image: '../../img/slot_3.png',
+					link: 'https://en.wikipedia.org/wiki/Cherry'
+				},
+			];
+
+			class Baner {
+				constructor(baners) {
+					this.baners = baners
+				};
+
+				getRandomBanerIndex(min = 0, max = this.baners.length - 1) {
+					return min + Math.floor(Math.random() * (max - min + 1))
+				}
+
+				render() {
+					let randomBanerIndex = this.getRandomBanerIndex();
+					document.write(`
+						<div class="banner" style="width: 30%" >
+							<a class="banner__link" style="width: 100%; padding-top: 100%" href="${this.baners[randomBanerIndex].link}" target="_blank">
+								<img class="banner__image" src="${this.baners[randomBanerIndex].image}" alt="image">
+							</a>
+						</div>`)
+				}
+
+			}
+
+			let baner1 = new Baner(arrayBanners);
+			baner1.render()
+
+		</script>
+
+	</div>
+</body>
+
+</html>

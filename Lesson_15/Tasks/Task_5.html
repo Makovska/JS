@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 15 - Task 5</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 5</h1>
+	<div class="section">
+		<h2>
+			Розробити клас «Керівник танців».
+			<ol>
+				<li>Поля(властивості)
+					<ul>
+						<li>Масив імен хлопців</li>
+						<li>Масив імен дівчат</li>
+					</ul>
+				</li>
+			</ol>
+			<ol>
+				<li>Методи (дії)
+					<ul>
+						<li>Метод випадкового вибору імені хлопця</li>
+						<li>Метод випадкового вибору імені дівчини</li>
+						<li>Метод виведення пари для танців</li>
+						<li>Метод run, який ініціює через кожні 5 секунд виведення нової пари для танців</li>
+					</ul>
+				</li>
+			</ol>
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+
+			let arrayBoys = ['Іван', 'Петро', 'Богдан', 'Максим', 'Артем'],
+				arrayGirls = ['Катерина', 'Марія', 'Ксенія', 'Ольга', 'Ганна'];
+
+			class DanceManager {
+				constructor(arrayBoys, arrayGirls) {
+					this.arrayBoys = arrayBoys;
+					this.arrayGirls = arrayGirls;
+				};
+
+				getRandomBoy(min = 0, max = this.arrayBoys.length - 1) {
+					return min + Math.floor(Math.random() * (max - min + 1))
+				}
+
+				getRandomGirl(min = 0, max = this.arrayGirls.length - 1) {
+					return min + Math.floor(Math.random() * (max - min + 1))
+				}
+
+				coupl() {
+					let boy = this.getRandomBoy(),
+						girl = this.getRandomGirl();
+					alert(`Пара: ${this.arrayBoys[boy]} та ${this.arrayGirls[girl]} `)
+				}
+
+				run() {
+					setTimeout(() => {
+						this.coupl();
+						this.run()
+					}, 5000);
+				}
+			}
+
+			let danceManager = new DanceManager(arrayBoys, arrayGirls);
+			danceManager.run()
+
+		</script>
+
+	</div>
+</body>
+
+</html>
