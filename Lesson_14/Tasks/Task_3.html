@@ -498,19 +498,34 @@
 			document.write(`<p>Kількість товарів, у яких ціна зменшилась ${countProductPriceDecreased}</p>`)
 
 			//------Товари, які доступні
-			let availableProduct = dataList.filter((product) => product.sell_status == 'available')
-			console.log(availableProduct)
+			let availableProducts = dataList.filter((product) => product.sell_status == 'available')
+			console.log(availableProducts)
 
 			//------сформувати новий список об”єктів тільки доступних  для продажу товарів, які міститимуть тільки ідентифікатор товару (id), нову ціну (price), стару ціну (old_price), та ціну у доларах (usd_price)
-			let availableProductListNew = availableProduct.map(product =>
-			({
-				id: product.id,
-				price: product.price,
-				old_price: product.old_price,
-				usd_price: product.usd_price,
-			})
-			)
-			console.log(availableProductListNew)
+			//------Варіант 1 - більш оптимізований, розглянуто на уроці 16
+			let availableProductsListNew = [];
+			for (const product of dataList) {
+				let { id, price, old_price, usd_price } = product;
+				if (product.sell_status == 'available') {
+					availableProductsListNew.push
+						({
+							id,
+							price,
+							old_price,
+							usd_price
+						})
+				}
+			}
+			//------Варіант 2
+			// let availableProductsListNew = availableProducts.map(product =>
+			// ({
+			// 	id: product.id,
+			// 	price: product.price,
+			// 	old_price: product.old_price,
+			// 	usd_price: product.usd_price,
+			// })
+			// )
+			console.log(availableProductsListNew)
 
 		</script>
 
