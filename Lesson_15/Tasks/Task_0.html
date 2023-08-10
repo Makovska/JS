@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 15 - Task 0</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 0</h1>
+	<div class="section">
+		<h2>
+			Дано два об’єкта. Обидва містять масив цілих чисел. При цьому у одному з них є функція знаходження суми, а у
+			іншому – функція для знаходження добутку тих, які знаходяться між заданими мінімальним і максимальних
+			значенням.
+			Використати обидва методи стосовно обидвох об’єктів (використати call, apply)
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+
+			let obj1 = {
+				arrayNums: [10, 1, 103, 29, 18, 26, 98, 73, 520, 3],
+				sumBetweenRange: function (num1, num2) {
+					let sum = 0;
+					for (const num of this.arrayNums) {
+						if (num > num1 && num < num2) {
+							sum += num
+						}
+					}
+					return sum
+				}
+			}
+
+			let obj2 = {
+				arrayNums: [101, 14, 13, 219, 8, 216, 8, 173, 52, 13],
+				multBetweenRange: function (num1, num2) {
+					let mult = 1;
+					for (const num of this.arrayNums) {
+						if (num > num1 && num < num2) {
+							mult *= num
+						}
+					}
+					return mult
+				}
+			}
+
+			let sum1 = obj1.sumBetweenRange(10, 100),
+				sum2 = obj1.sumBetweenRange.call(obj2, 10, 100),
+				mult1 = obj2.multBetweenRange.apply(obj1, [10, 100]),
+				mult2 = obj2.multBetweenRange(10, 100);
+
+			document.write(`
+			<p>sum1 = ${sum1}</p>
+			<p>sum2 = ${sum2}</p>
+			<p>mult1 = ${mult1}</p>
+			<p>mult2 = ${mult2}</p>
+			`)
+
+		</script>
+
+	</div>
+</body>
+
+</html>
