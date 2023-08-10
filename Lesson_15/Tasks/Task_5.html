@@ -46,17 +46,13 @@
 					this.arrayGirls = arrayGirls;
 				};
 
-				getRandomBoy(min = 0, max = this.arrayBoys.length - 1) {
-					return min + Math.floor(Math.random() * (max - min + 1))
-				}
-
-				getRandomGirl(min = 0, max = this.arrayGirls.length - 1) {
+				getRandomIndex(array, min = 0, max = array.length - 1) {
 					return min + Math.floor(Math.random() * (max - min + 1))
 				}
 
 				couple() {
-					let boy = this.getRandomBoy(),
-						girl = this.getRandomGirl();
+					let boy = this.getRandomIndex(arrayBoys),
+						girl = this.getRandomIndex(arrayGirls);
 					alert(`Пара: ${this.arrayBoys[boy]} та ${this.arrayGirls[girl]} `)
 				}
 
