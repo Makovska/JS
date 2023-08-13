@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 16 - Task 4</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 4</h1>
+	<div class="section">
+		<h2>
+			Створити клас TBankomat, який моделює роботу банкомата. Клас повинен містити поля для зберігання кількості
+			купюр кожного
+			із номіналів від 5 до 200 гривень. Реалізувати методи знаходження максимальної та мінімальної сум, які може
+			видати
+			банкомат, та метод зняття деякої суми.
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+
+			class TBankomat {
+				#countUAH5
+				#countUAH10
+				#countUAH50
+				#countUAH100
+				#countUAH200
+				constructor(initCountUAH5, initCountUAH10, initCountUAH50, initCountUAH100, initCountUAH200) {
+					this.CountUAH5 = initCountUAH5;
+					this.CountUAH10 = initCountUAH10;
+					this.CountUAH50 = initCountUAH50;
+					this.CountUAH100 = initCountUAH100;
+					this.CountUAH200 = initCountUAH200;
+				}
+
+				get CountUAH5() {
+					return this.#countUAH5
+				}
+				set CountUAH5(initCountUAH5) {
+					if (initCountUAH5 < 0) throw new Error('Значення не коректне')
+					this.#countUAH5 = initCountUAH5;
+				}
+
+				get CountUAH10() {
+					return this.#countUAH10
+				}
+				set CountUAH10(initCountUAH10) {
+					if (initCountUAH10 < 0) throw new Error('Значення не коректне')
+					this.#countUAH10 = initCountUAH10;
+				}
+
+				get CountUAH50() {
+					return this.#countUAH50
+				}
+				set CountUAH50(initCountUAH50) {
+					if (initCountUAH50 < 0) throw new Error('Значення не коректне')
+					this.#countUAH50 = initCountUAH50;
+				}
+
+				get CountUAH100() {
+					return this.#countUAH100
+				}
+				set CountUAH100(initCountUAH100) {
+					if (initCountUAH100 < 0) throw new Error('Значення не коректне')
+					this.#countUAH100 = initCountUAH100;
+				}
+
+				get CountUAH200() {
+					return this.#countUAH200
+				}
+				set CountUAH200(initCountUAH200) {
+					if (initCountUAH200 < 0) throw new Error('Значення не коректне')
+					this.#countUAH200 = initCountUAH200;
+				}
+
+				getMinSum() {
+					return this.CountUAH5 ? 5 :
+						this.CountUAH10 ? 10 :
+							this.CountUAH50 ? 50 :
+								this.CountUAH100 ? 100 :
+									this.CountUAH200 ? 200 : 0
+				}
+
+				getMaxSum() {
+					return 5 * this.CountUAH5 +
+						10 * this.CountUAH10 +
+						50 * this.CountUAH50 +
+						100 * this.CountUAH100 +
+						200 * this.CountUAH200
+				}
+
+				getBanknotes(restSum, availableCountDenomination, denomination) {
+					if (restSum >= denomination && availableCountDenomination >= 0) {
+						return Math.floor(restSum / denomination) < availableCountDenomination ? Math.floor(restSum / denomination) : availableCountDenomination;
+					} else { return 0 }
+				}
+
+				getCash(sumUserWants) {
+					let restSum = sumUserWants,
+						minSum = this.getMinSum(),
+						maxSum = this.getMaxSum();
+
+					if (restSum <= maxSum && restSum >= minSum && restSum % minSum === 0) {
+						restSum -= this.getBanknotes(restSum, this.CountUAH200, 200) * 200;
+						if (restSum > 0) {
+							restSum -= this.getBanknotes(restSum, this.CountUAH100, 100) * 100;
+						}
+						if (restSum > 0) {
+							restSum -= this.getBanknotes(restSum, this.CountUAH50, 50) * 50;
+						}
+						if (restSum > 0) {
+							restSum -= this.getBanknotes(restSum, this.CountUAH10, 10) * 10;
+						}
+						if (restSum > 0) {
+							restSum -= this.getBanknotes(restSum, this.CountUAH5, 5) * 5;
+						}
+					}
+
+					if (restSum === 0) {
+						document.write(`<p>Отримайте ${sumUserWants} грн.</p>`)
+					} else {
+						document.write(`<p>Отримати ${sumUserWants} грн. не можливо. Введіть іншу суму.</p>`)
+					}
+				}
+
+				toString() {
+					return `
+					<p>Мінімальна сума, яку може видати банкомат = ${this.getMinSum()} грн.</p>
+					<p>Максимальна сума, яку може видати банкомат = ${this.getMaxSum()} грн.</p>`
+				}
+			}
+
+			let sumUserWants = parseInt(prompt('Яку суму бажаєте отримати?'));
+
+			let bankomat1 = new TBankomat(1, 2, 11, 1, 1);
+			bankomat1.getCash(sumUserWants);
+			document.write(bankomat1)
+
+		</script>
+
+	</div>
+</body>
+
+</html>
