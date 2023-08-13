@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 16 - Task 2</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 2</h1>
+	<div class="section">
+		<h2>
+			Створити клас TMoney для роботи з грошовими сумами. Сума повинна зберігатися у вигляді доларового еквіваленту.
+			Реалізувати методи додавання/вилучення грошової маси, вказуючи необхідну суму у гривнях, та визначення курсу
+			долара, при
+			якому сума у гривнях збільшиться на 100. Курс долара зберігати в окремому полі.
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+
+			class TMoney {
+				#sumMoneyInUSD
+				#exchangeRate
+				constructor(initExchangeRate = 37) {
+					this.ExchangeRate = initExchangeRate;
+					this.SumMoneyInUSD = 0;
+				}
+
+				get ExchangeRate() {
+					return this.#exchangeRate
+				}
+				set ExchangeRate(initExchangeRate) {
+					if (initExchangeRate <= 0) throw new Error('Значення не коректне')
+					this.#exchangeRate = initExchangeRate;
+				}
+
+				get SumMoneyInUSD() {
+					return this.#sumMoneyInUSD
+				}
+				set SumMoneyInUSD(initSumMoney) {
+					if (initSumMoney < 0) throw new Error('Значення не коректне')
+					this.#sumMoneyInUSD = initSumMoney;
+				}
+
+				getSumMoneyInUSD(accountMovement, initSumMoneyInUAH) {
+					this.SumMoneyInUSD += (parseInt(accountMovement + 1) * initSumMoneyInUAH) / this.ExchangeRate
+				}
+
+				getExchangeRateForIncreaseDeposit() {
+					return (this.SumMoneyInUSD * this.ExchangeRate + 100) / this.SumMoneyInUSD
+				}
+
+				toString() {
+					return `
+					<p>На Вашому рахунку ${this.SumMoneyInUSD * this.ExchangeRate} грн.</p>
+					<p>Ваші заощадження збільшаться на 100 грн. при курсі USD = ${this.getExchangeRateForIncreaseDeposit()} / 1 грн.</p>`
+				}
+			}
+
+			let accountMovement = prompt('Бажаєте додати (+) або вилучити (-) гроші?'),
+				sumMoneyInUAH = parseFloat(prompt('Яку суму?'));
+
+			let userAccount = new TMoney();
+			userAccount.getSumMoneyInUSD(accountMovement, sumMoneyInUAH)
+			document.write(userAccount)
+
+		</script>
+
+	</div>
+</body>
+
+</html>
