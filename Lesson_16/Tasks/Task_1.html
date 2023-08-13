@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Lesson 16 - Task 1</title>
+</head>
+
+<body>
+	<h1 class="section">Задача 1</h1>
+	<div class="section">
+		<h2>
+			Створити клас TDate для роботи із датами у форматі “день.місяць.рік”. Дата представляється структурою із трьома
+			полями.
+			Реалізувати методи збільшення/зменшення дати на певну кількість днів, місяців чи років. Введення та виведення
+			дати
+			реалізувати за допомогою методу toString.
+		</h2>
+	</div>
+	<div class="section">
+		<h2>Відповідь</h2>
+		<script>
+
+			class TDate {
+				#day
+				#month
+				#year
+				constructor(initDateArray) {
+					this.Day = parseInt(initDateArray[0]);
+					this.Month = parseInt(initDateArray[1]);
+					this.Year = parseInt(initDateArray[2]);
+				}
+
+				get Month() {
+					return this.#month
+				}
+
+				set Month(newMonth) {
+					if (newMonth <= 0 || newMonth > 12) throw new Error('Значення не коректне')
+					this.#month = newMonth;
+				}
+
+				get Day() {
+					return this.#day
+				}
+
+				set Day(newDay) {
+					if (newDay <= 0 || newDay > 31) throw new Error('Значення не коректне')
+					this.#day = newDay
+				}
+
+				get Year() {
+					return this.#year
+				}
+
+				set Year(newYear) {
+					if (newYear <= 0) throw new Error('Значення не коректне')
+					this.#year = newYear;
+				}
+
+				changeDate(wayToChangeDate, partOfDateToChange, countToChangeDate) {
+					let mathSign = parseInt(wayToChangeDate + 1);
+
+					if (partOfDateToChange == 'Y') {
+						this.Year += mathSign * countToChangeDate
+					}
+
+					if (partOfDateToChange == 'M') {
+						let totalCountOfMonth = this.Year * 12 + this.Month;
+						this.Year = Math.floor((totalCountOfMonth - 1 + mathSign * countToChangeDate) / 12);
+						this.Month = (totalCountOfMonth + mathSign * countToChangeDate) % 12 === 0 ? 12 : (totalCountOfMonth + mathSign * countToChangeDate) % 12
+					}
+
+					if (partOfDateToChange == 'D') {
+						let daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+						let totalCountOfDays = this.Year * 365 + this.Day;
+						for (let i = this.Month - 2; i >= 0; i--) {
+							totalCountOfDays += daysInMonth[i]
+						}
+
+						this.Year = Math.floor((totalCountOfDays - 1 + mathSign * countToChangeDate) / 365);
+						Math.abs
+
+						let daysInCalculatedYear = (totalCountOfDays + mathSign * countToChangeDate) % 365;
+						if (daysInCalculatedYear === 0) {
+							this.Day = 31;
+							this.Month = 12;
+						} else {
+							for (let i = 0; i < daysInMonth.length; i++) {
+								if (daysInCalculatedYear <= daysInMonth[i]) {
+									this.Day = (daysInCalculatedYear);
+									this.Month = i + 1;
+									break
+								} else {
+									daysInCalculatedYear -= daysInMonth[i]
+								}
+							}
+						}
+					}
+				}
+
+				toString(initDateArray) {
+					return `<p>${this.Day}.${this.Month}.${this.Year}</p>`
+				}
+			}
+
+			let userDate = prompt('Введіть початкову дату у форматі DD.MM.YYYY');
+			document.write(`<p>Початкова дата ${userDate}</p>`)
+
+			let wayToChangeDate = prompt('Бажаєте збільшити (+) або зменшити (-) дату?'),
+				partOfDateToChange = prompt('Бажаєте збільшити/зменшити дату на певну кількість\nднів (D)\nмісяців (M)\nроків (Y)?').toUpperCase(),
+				countToChangeDate = parseInt(prompt('Введіть кількість'));
+
+			let date1 = new TDate(userDate.split('.'));
+			date1.changeDate(wayToChangeDate, partOfDateToChange, countToChangeDate)
+			document.write(date1)
+
+		</script>
+
+	</div>
+</body>
+
+</html>
